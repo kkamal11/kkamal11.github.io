@@ -53,7 +53,7 @@ export default function Home() {
       
       {/* Right background image */}
       <div
-        className="absolute right-0 top-0 h-[70%] w-[55%] sm:h-full sm:w-[65%] z-0 transition-transform duration-500 ease-out"
+        className="absolute right-0 top-0 h-full w-[65%] z-0 transition-transform duration-500 ease-out"
         style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}>
         <img
           src={kml}
