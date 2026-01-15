@@ -1,6 +1,13 @@
 import { Laptop, GraduationCap, Briefcase, Sparkle } from "phosphor-react";
 import focusImg from '../assets/focus.jpg'
+import { certificates } from "../utils/Data";
+import { useState } from "react";
 export default function About() {
+  const [showAllCerts, setShowAllCerts] = useState(false);
+  const toggleCertCount = () => {
+    setShowAllCerts((prev) => !prev);
+  }
+  const visibleCertificates = showAllCerts ? certificates : certificates.slice(0, 6);
   return (
     <section className="min-h-screen bg-[#f7f7f5] px-6 md:px-24 py-10 text-gray-600">
       <div className="max-w-7xl mx-auto space-y-10">
@@ -129,12 +136,23 @@ export default function About() {
             <h4 className="uppercase tracking-widest text-xs text-gray-500 mb-6">Certifications</h4>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              <CertCard title="SQL for Data Analysis" org="Coursera" img="/certs/sql.png" link="#" />
-              <CertCard title="Power BI Analytics" org="Truscholar" img="/certs/powerbi.png" link="#" />
-              <CertCard title="Excel for Analysis" org="Coursera" img="/certs/excel.png" link="#" />
-              <CertCard title="Excel for Analysis" org="Coursera" img="/certs/excel.png" link="#" />
+              {visibleCertificates.map(cert => {
+                return <CertCard
+                  title={cert.title}
+                  org={cert.org}
+                  img={cert.image}
+                  link={cert.verify_link} key={cert.id} />
+              })}
             </div>
           </div>
+          <div className="flex items-center justify-center mt-6">
+            <button
+            onClick={toggleCertCount}
+            className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+            >
+            {showAllCerts ? "Show Less" : "Expand All"}
+            </button>
+        </div>
 
           <p className="text-sm text-gray-500 text-center">
               I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across software engineering, machine learning, and artificial intelligence.          </p>
@@ -207,25 +225,34 @@ function CertCard({
   img: string;
   link: string;
 }) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-<div className="group/cert bg-white border border-gray-200 rounded-xl px-6 py-2 overflow-hidden transition-all duration-700 ease-out hover:shadow-md">
-
-  <div className="h-0 opacity-0 translate-y-4
-    transition-all duration-700 ease-out
-    group-hover/cert:h-32 group-hover/cert:opacity-100 group-hover/cert:translate-y-0
-  ">
-
-        <div className="mt-2 h-32 bg-gray-50 flex items-center justify-center rounded-lg">
-          <img src={img} alt={title} className="h-20 object-contain" />
+    <div
+      className="bg-white border border-gray-200 rounded-xl px-6 py-4 transition-all duration-300 hover:shadow-md"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Expandable image */}
+      <div
+        className={`
+          overflow-hidden transition-all duration-500 ease-out
+          ${hovered ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}
+        `}
+      >
+        <div className="mt-2 flex items-center justify-center">
+          <img src={img} alt={title} className="object-fit" />
         </div>
       </div>
-      {/* Always visible */}
-      <div className="py-4">
+
+      {/* Text */}
+      <div className="pt-4">
         <p className="text-gray-800 font-medium">{title}</p>
-        <p className="text-xs text-gray-500">{org}</p>
+        <p className="text-sm text-gray-600">{org}</p>
         <a
           href={link}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-xs text-blue-600 inline-block hover:underline underline-offset-4"
         >
           Verify ↗
