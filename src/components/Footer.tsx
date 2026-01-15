@@ -54,7 +54,7 @@ export default function Footer() {
 
       {/* Bottom credit */}
       <div className="relative text-center text-xs text-gray-400 pb-4 px-2">
-        Developed & designed by <a href="https://github.com/kkamal11" target="_blank" className="text-gray-200 font-medium">Kamal Kishor</a> using{" "}
+        Developed & designed by <a href="https://github.com/kkamal11" target="_blank" className="text-gray-200 font-medium">Kamal</a> using{" "}
         <span className="text-blue-400">React</span>, {" "}
         <span className="text-cyan-400">TypeScript</span> &{" "}
         <span className="text-blue-300">Tailwind CSS</span>
