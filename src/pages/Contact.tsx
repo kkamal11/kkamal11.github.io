@@ -32,7 +32,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="min-h-screen bg-[#f7f7f5] flex items-center justify-center px-6 my-8">
+    <section className="min-h-screen bg-[#f7f7f5] flex items-center justify-center px-6 my-3 md:my-8">
       <div className="max-w-xl w-full bg-white rounded-xl shadow-sm border border-gray-200 p-10 space-y-6">
 
         <div>
