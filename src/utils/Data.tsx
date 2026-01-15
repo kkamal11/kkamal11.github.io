@@ -10,7 +10,8 @@ import pythonHackerrank from "../assets/images/python-hackerrank.png";
 import pythonCoursera from "../assets/images/python.jpg";
 import pythonMentor from "../assets/images/python_mentor.png";
 import sqlpng from "../assets/images/sqlpng.png";
-
+import dip_in_prom from "../assets/images/dp.png";
+import dip_in_ds from "../assets/images/dds.png";
  
 type ProjectType =
     | "Full Stack Web App"
@@ -243,15 +244,15 @@ export const certificates: Certificate[] = [
     id: 3,
     title: "Diploma in Programming",
     org: "IIT Madras",
-    verify_link: "https://drive.google.com/file/d/1w356baxF4SRiI19rEp2nrBZQcbvSqIi_/view?usp=sharing",
-    image: "../assets/certificates/foundationCerti.jpg",
+    verify_link: "https://drive.google.com/file/d/1eQvQq8QfzrkSaI3wFhZmqe82tezvjkwG/view?usp=sharing",
+    image: dip_in_prom
     },
     {
     id: 4,
     title: "Diploma in Data Science",
     org: "IIT Madras",
-    verify_link: "https://drive.google.com/file/d/1w356baxF4SRiI19rEp2nrBZQcbvSqIi_/view?usp=sharing",
-    image: "../assets/certificates/foundationCerti.jpg",
+    verify_link: "https://drive.google.com/file/d/1xi23lVEGiLzE4NvVxapalNejDFYCvv0K/view?usp=sharing",
+    image: dip_in_ds
   },
   {
     id: 5,

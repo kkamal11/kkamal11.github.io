@@ -1,4 +1,4 @@
-import { Laptop, GraduationCap, Briefcase, Sparkle } from "phosphor-react";
+import { Laptop, GraduationCap, Briefcase, Sparkle, Medal } from "phosphor-react";
 import focusImg from '../assets/focus.jpg'
 import { certificates } from "../utils/Data";
 import { useState } from "react";
@@ -133,8 +133,10 @@ export default function About() {
 
           {/* Certificates */}
           <div>
-            <h4 className="uppercase tracking-widest text-xs text-gray-500 mb-6">Certifications</h4>
-
+              <div className="flex items-center gap-3 mb-6">
+                <Medal size={20} className="text-gray-500" />
+              <h4 className="uppercase tracking-widest text-xs text-gray-500">Certifications</h4>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {visibleCertificates.map(cert => {
                 return <CertCard
@@ -240,13 +242,13 @@ function CertCard({
           ${hovered ? "max-h-64 opacity-100" : "max-h-0 opacity-0"}
         `}
       >
-        <div className="mt-2 flex items-center justify-center">
-          <img src={img} alt={title} className="object-fit" />
+        <div className="flex items-center justify-center">
+          <img src={img} alt={title} className="object-fit mb-4" />
         </div>
       </div>
 
       {/* Text */}
-      <div className="pt-4">
+      <div className="">
         <p className="text-gray-800 font-medium">{title}</p>
         <p className="text-sm text-gray-600">{org}</p>
         <a
