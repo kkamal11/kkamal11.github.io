@@ -36,7 +36,7 @@ export default function Contact() {
       <div className="max-w-xl w-full bg-white rounded-xl shadow-sm border border-gray-200 p-10 space-y-6">
 
         <div>
-          <h1 className="text-3xl font-medium text-gray-700 mb-1">Contact Me</h1>
+          <h1 className="text-3xl font-[400px] tracking-tight text-gray-800 whitespace-nowrap mb-1">Contact Me</h1>
           <p className="text-gray-500 text-sm">
             Let's build something meaningful together.
           </p>

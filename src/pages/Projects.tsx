@@ -18,7 +18,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
         {/* Header */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-4">
           <div>
-            <h2 className="text-4xl font-medium text-gray-700 leading-tight">
+            <h2 className="text-4xl font-[400px] tracking-tight text-gray-800 whitespace-nowrap">
               Explore My Projects <br /> Journey
             </h2>
           </div>
