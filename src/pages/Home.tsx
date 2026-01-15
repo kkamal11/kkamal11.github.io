@@ -49,7 +49,7 @@ export default function Home() {
 
   return (
     <>
-    <section className="relative bg-[#F8F8F8] min-h-screen overflow-hidden">
+    <section className="relative bg-[#F8F8F8] sm:min-h-screen overflow-hidden">
       
       {/* Right background image */}
       <div
@@ -89,7 +89,7 @@ export default function Home() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-gray-500 text-lg flex items-center gap-2 max-w-md opacity-0 animate-fade-up [animation-delay:0.5s]">
+          <p className="text-gray-500  sm:text-lg flex items-center gap-2 max-w-md opacity-0 animate-fade-up [animation-delay:0.5s]">
             <span className="inline-block w-8 h-px bg-gray-400 origin-left transform scale-x-90 transition-all duration-700 group-hover:scale-x-100 group-hover:bg-gray-700"></span>
             It's <span className="underline-offset-2 group-hover:underline">Kamal Kishor</span> - a Software Developer
           </p>
