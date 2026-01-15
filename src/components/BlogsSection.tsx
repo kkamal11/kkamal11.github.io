@@ -1,5 +1,6 @@
 import { blogs } from "../utils/Data";
 import { type Blog } from "../utils/Data";
+import { NavLink } from "react-router-dom";
 
 export default function BlogsSection() {
   return (
@@ -18,8 +19,13 @@ export default function BlogsSection() {
             <BlogCard key={blog.id} blog={blog} />
           ))}
         </div>
-
-      </div>
+       </div>
+        <div className="flex items-center justify-center mt-4 sm:mt-8">
+            <NavLink to={'/blog'}
+            className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+            > View Blogs
+            </NavLink>
+        </div>
     </section>
   );
 }
