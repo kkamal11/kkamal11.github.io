@@ -15,7 +15,11 @@ import dip_in_ds from "../assets/images/dds.png";
 import fastapi from "../assets/blog/fastapi.png";
 import react from "../assets/blog/react.png";
 import javag from "../assets/blog/javag.png";
- 
+import qty_self_2 from "../assets/projects/Home.png"
+import qty_self_1 from "../assets/projects/qapp1.png"
+import MLP from "../assets/projects/ml_project.png"
+import ipl from "../assets/projects/ipl.webp"
+
 type ProjectType =
     | "Full Stack Web App"
     | "Backend API"
@@ -63,8 +67,8 @@ export const Projects: Project[] = [
     title: "Bookly — FastAPI Beyond CRUD",
     btm_text: "Production-grade backend API with auth, email, logging, and testing",
     description:
-      "A production-ready backend API showcasing clean architecture, async operations, authentication, background tasks, and automated testing.",
-    githubUrl: "https://github.com/your-repo-link",
+      "A production-ready backend API showcasing clean architecture, async operations, authentication, background tasks, and automated emails.",
+    githubUrl: "https://github.com/kkamal11/FastAPI-Bookly-Application",
     techUsed: [
       "FastAPI",
       "Python",
@@ -72,7 +76,8 @@ export const Projects: Project[] = [
       "SQLModel",
       "JWT",
       "OAuth2",
-        "Pytest",
+      "Pytest",
+      "Alembic",
       "Linux"
     ],
     features: [
@@ -85,7 +90,7 @@ export const Projects: Project[] = [
     ], 
     tags: ["Backend", "FastAPI", "REST Api"],
     imgPath: [apiImg],
-        period: 'December 2025 - January 2026',
+    period: 'December 2025 - January 2026',
     type: "Backend API",
   },
   {
@@ -94,9 +99,10 @@ export const Projects: Project[] = [
     btm_text: "Full-stack academic platform with integrated AI and analytics",
     description:
       "A scalable academic platform integrating learning management, analytics, AI-powered semantic search, plagiarism detection, and role-based access.",
-    githubUrl: "https://github.com/your-repo-link",
+    githubUrl: "https://github.com/kkamal11/soft-engg-project-ai-pow-academic-portal",
     techUsed: [
       "Vue.js 3",
+      "JavaScript",
       "FastAPI",
       "PostgreSQL",
       "pgvector",
@@ -104,8 +110,9 @@ export const Projects: Project[] = [
       "JWT",
       "Google OAuth",
       "Redis",
-    "Tailwind CSS",
-      "Linux"
+      "Tailwind CSS",
+      "Linux",
+      "gunicorn"
     ],
     features: [
       "Course and enrollment management",
@@ -128,7 +135,7 @@ export const Projects: Project[] = [
     btm_text: "Cloud-based contact management with OAuth authentication",
     description:
       "A Spring Boot web application for managing contacts securely with OAuth-based login and cloud image storage.",
-    githubUrl: "https://github.com/your-repo-link",
+    githubUrl: "https://github.com/kkamal11/Smart-Contact-Manager-Web-App",
     techUsed: [
       "Java",
       "Spring Boot",
@@ -140,12 +147,13 @@ export const Projects: Project[] = [
     features: [
       "Google and GitHub OAuth login",
       "Cloud-based image storage",
+      "Email authorization and verification",
       "Search and filter contacts",
-      "Responsive UI"
+      "Responsive elegant UI"
     ],
     tags: ["Java", "Spring Boot","Cloud"],
     imgPath: ["./assets/projects/contact_manager.png"],
-      period: 'November 2024 - December 2024',
+    period: 'November 2024 - December 2024',
     type:"Full Stack Web App"
   },
   {
@@ -173,7 +181,7 @@ export const Projects: Project[] = [
       "Visualization of feature importance and model results"
     ],
     tags: ["Machine Learning", "Data Science", "Kaggle"],
-    imgPath: ["./assets/projects/ml_project.png"],
+    imgPath: [MLP],
     period: 'January 2024 - April 2024',
     type:"Machine Learning"
   },
@@ -194,7 +202,7 @@ export const Projects: Project[] = [
       "Data-driven observations on match concentration by venue"
     ],
     tags: ["Data Analysis", "Visualization", "Bussiness Data Analytics"],
-    imgPath: ["./assets/projects/ipl.webp"],
+    imgPath: [ipl],
     period: 'August 2022 - September 2022',
     type:"Data Analysis"
   },
@@ -228,8 +236,8 @@ export const Projects: Project[] = [
       "Responsive UI with dark mode"
     ],
     tags: ["Full Stack", "Productivity"],
-    imgPath: ["./assets/projects/Home.png"],
-      period: 'September 2021 - December 2021',
+    imgPath: [qty_self_2],
+    period: 'September 2021 - December 2021',
     type:"Full Stack Web App"
   },
   {
@@ -246,8 +254,8 @@ export const Projects: Project[] = [
       "Lightweight server-rendered UI"
     ],
     tags: ["Flask", "Beginner"],
-    imgPath: ["./assets/projects/qapp1.png"],
-      period: 'May 2021 - August 2021',
+    imgPath: [qty_self_1],
+    period: 'May 2021 - August 2021',
     type:"Full Stack Web App"
   }
 ];
