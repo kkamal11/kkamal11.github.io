@@ -101,7 +101,7 @@ export default function Home() {
               <a href="https://www.linkedin.com/in/kkamal11" target="_blank" className="hover:text-gray-700 transition-colors duration-200 cursor-pointer hover:scale-110"><LinkedinLogo size={22} /></a>
               <a href="mailto:dev.kamal.kishor@gmail.com" className="hover:text-gray-700 transition-colors duration-200 cursor-pointer hover:scale-110"><EnvelopeSimple size={23} /></a>
             </div>
-            <div className="hidden sm:inline-block opacity-80 [animation-delay:0.8s] animate-bounce">Scroll down <span>↓</span></div>
+            <div className="opacity-80 [animation-delay:0.8s] animate-bounce">Scroll down <span>↓</span></div>
         </div>
 
         {/* Animated Vertical Line */}
