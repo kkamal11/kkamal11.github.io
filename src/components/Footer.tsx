@@ -48,7 +48,7 @@ export default function Footer() {
         </div>
 
         {/* Right Email */}
-        <div className="text-3xl md:text-4xl font-light tracking-wide text-white">
+        <div className="text-xl sm:text-3xl md:text-4xl font-light tracking-wide text-white">
           dev.kamal.kishor@gmail.com
         </div>
       </div>
