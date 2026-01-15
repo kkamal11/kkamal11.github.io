@@ -1,40 +1,39 @@
-import Arrow from "../components/Arrow";
-import { Laptop, GraduationCap } from "phosphor-react";
-
+import { Laptop, GraduationCap, Briefcase, Sparkle } from "phosphor-react";
+import focusImg from '../assets/focus.jpg'
 export default function About() {
   return (
-    <section className="min-h-screen bg-[#f7f7f5] px-6 md:px-24 py-20 text-gray-600">
-      {/* Header */}
-      <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-6 mb-16">
+    <section className="min-h-screen bg-[#f7f7f5] px-6 md:px-24 py-10 text-gray-600">
+      <div className="max-w-7xl mx-auto space-y-10">
+
+        {/* Header */}
+        <div className="flex items-center gap-6">
           <h1 className="text-4xl font-light tracking-tight text-gray-800 whitespace-nowrap">
             About Me
           </h1>
           <div className="flex-1 h-px bg-gray-300 opacity-60" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-          {/* Left: Intro */}
-          <div className="space-y-6 md:col-span-1">
-            <p className="leading-relaxed text-lg">
+        {/* ===== Row 1 ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          {/* Description */}
+          <div className="space-y-6">
+            <p className="text-lg leading-relaxed">
               I build intelligent, scalable software systems with a strong focus on clean architecture,
-              performance, and user-centric design. I enjoy solving complex problems and turning them into
-              elegant, reliable products.
+              performance, and user-centric design.
             </p>
             <p className="leading-relaxed">
               My work spans full-stack development, backend systems, data-driven applications, and
-              performance-critical services — always with a focus on simplicity and long-term maintainability.
+              performance-critical services — always focusing on simplicity and long-term maintainability.
             </p>
-
-            <Arrow />
           </div>
 
-          {/* Middle: Experience */}
-          <div className="relative md:col-span-1 md:mt-12">
-            <div className="rounded-xl bg-white border border-gray-200 shadow-sm p-8 space-y-6">
+          {/* Oracle */}
+          <div className="md:mt-10">
+            <div className="bg-white border border-gray-200 rounded-xl p-8 space-y-6 shadow-sm">
               <div className="flex items-center gap-4">
                 <div className="p-3 rounded-full bg-gray-100">
-                  <Laptop size={24} className="text-gray-700" />
+                  <Laptop size={22} className="text-gray-700" />
                 </div>
                 <div>
                   <h3 className="text-lg font-medium text-gray-800">Associate Consultant</h3>
@@ -44,47 +43,194 @@ export default function About() {
 
               <div className="h-px bg-gray-200" />
 
-              <p className="leading-relaxed text-sm">
-                I work on building and improving enterprise systems that power critical business operations.
-                My role focuses on performance optimization, scalability, system reliability, and clean system
-                design across distributed architectures.
+              <p className="text-sm leading-relaxed">
+                Currently, at Oracle, I work on building and improving enterprise systems that power critical business operations. My role focuses on enhancing performance, reliability, and scalability by refining system design, optimizing workflows, and strengthening data processing.  
               </p>
 
               <div className="pt-2 border-t border-gray-200 text-xs text-gray-500">
-                Software Engineering • System Design • Distributed Systems • FinTech
+              Software Development • Microservices • FinTech • System Design • Software Testing
               </div>
             </div>
           </div>
 
-          {/* Right: Education */}
-          <div className="md:col-span-1 md:pt-20">
-            <div className="space-y-8">
-              <div className="flex items-center gap-3">
-                <GraduationCap size={22} className="text-gray-500" />
-                <h4 className="uppercase tracking-widest text-xs text-gray-500">
-                  Education
-                </h4>
-              </div>
+          {/* Education */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <GraduationCap size={20} className="text-gray-500" />
+              <h4 className="uppercase tracking-widest text-xs text-gray-500">Education</h4>
+            </div>
 
-              <div className="space-y-6">
-                <div>
-                  <p className="text-gray-800 font-medium">
-                    B.Tech — National Institute of Technology, Kurukshetra
-                  </p>
-                  <p className="text-xs text-gray-500">Engineering</p>
-                </div>
+            <div className="space-y-6 text-sm">
+              <EduBlock
+                institute="National Institute of Technology Kurukshetra"
+                location="Kurukshetra, Haryana"
+                degree="Bachelor of Technology (B.Tech)"
+                period="Aug 2019 – June 2023"
+                grade="Grade: 8.46 CGPA"
+              />
 
-                <div>
-                  <p className="text-gray-800 font-medium">
-                    B.Sc — Indian Institute of Technology, Madras
-                  </p>
-                  <p className="text-xs text-gray-500">Programming & Data Science</p>
-                </div>
-              </div>
+              <EduBlock
+                institute="Indian Institute of Technology Madras"
+                location="Chennai, Tamil Nadu"
+                degree="BSc in Programming and Data Science"
+                period="Mar 2021 – Dec 2025"
+                grade="Grade: 9.40 CGPA"
+              />
+
+              <EduBlock
+                institute="MS Memorial Public School"
+                location="East Champaran, Bihar"
+                degree="Senior Secondary (PCM)"
+                period=""
+                grade="Aggregate: 90%"
+              />
             </div>
           </div>
         </div>
-      </div> 
+
+        {/* ===== Row 2 ===== */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+
+          {/* Internships */}
+          <div>
+            <div className="flex items-center gap-3 mb-6">
+              <Briefcase size={20} className="text-gray-500" />
+              <h4 className="uppercase tracking-widest text-xs text-gray-500">Early Experience</h4>
+            </div>
+
+            <Timeline>
+              <TimelineItem title="Project Intern — NIT Kurukshetra" period="Jan–May 2022" desc="Worked on academic software projects and documentation." />
+              <TimelineItem title="Python Mentor — IIT Madras" period="Aug–Sep 2022" desc="Mentored students on programming and debugging." />
+              <TimelineItem title="Teaching Assistant — ML Foundations" period="Sep–Dec 2022" desc="Supported learners with coursework and conceptual clarity." />
+            </Timeline>
+          </div>
+
+          {/* Core Focus */}
+          <div className="p-10 flex items-center justify-center">
+            <img
+              src={focusImg}
+              alt="Core focus illustration"
+              className=" rounded-xl
+                w-56 md:w-72
+                opacity-80
+                grayscale
+                transition-all duration-500 ease-out
+                hover:opacity-100 hover:grayscale-0 hover:scale-105
+              "
+            />
+          </div>
+        </div>
+
+        {/* ===== Row 3 ===== */}
+        <div className="space-y-12">
+
+          {/* Certificates */}
+          <div>
+            <h4 className="uppercase tracking-widest text-xs text-gray-500 mb-6">Certifications</h4>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <CertCard title="SQL for Data Analysis" org="Coursera" img="/certs/sql.png" link="#" />
+              <CertCard title="Power BI Analytics" org="Truscholar" img="/certs/powerbi.png" link="#" />
+              <CertCard title="Excel for Analysis" org="Coursera" img="/certs/excel.png" link="#" />
+              <CertCard title="Excel for Analysis" org="Coursera" img="/certs/excel.png" link="#" />
+            </div>
+          </div>
+
+          <p className="text-sm text-gray-500 text-center">
+              I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across software engineering, machine learning, and artificial intelligence.          </p>
+        </div>
+
+      </div>
     </section>
+  );
+}
+
+/* ===== Helpers ===== */
+
+function EduBlock({
+  institute,
+  location,
+  degree,
+  period,
+  grade,
+}: {
+  institute: string;
+  location: string;
+  degree: string;
+  period: string;
+  grade: string;
+}) {
+  return (
+    <div className="space-y-1">
+      <p className="text-gray-800 font-medium uppercase">{institute}</p>
+      <p className="text-xs text-gray-500">{location}</p>
+      <p className="italic">{degree}</p>
+      <p className="text-xs text-gray-500">{period}</p>
+      <p className="text-xs text-gray-500">{grade}</p>
+    </div>
+  );
+}
+
+function Timeline({ children }: { children: React.ReactNode }) {
+  return <div className="relative pl-6 border-l border-gray-300 space-y-6">{children}</div>;
+}
+
+function TimelineItem({
+  title,
+  period,
+  desc,
+}: {
+  title: string;
+  period: string;
+  desc: string;
+}) {
+  return (
+    <div className="relative">
+      <span className="absolute -left-[9px] top-1.5 w-3 h-3 rounded-full"><Sparkle weight="fill" /></span>
+      <div className="ml-3">
+          <p className="text-gray-800 font-medium">{title}</p>
+          <p className="text-xs text-gray-500">{period}</p>
+          <p className="text-xs text-gray-600 mt-1">{desc}</p>
+      </div>
+    </div>
+  );
+}
+
+function CertCard({
+  title,
+  org,
+  img,
+  link,
+}: {
+  title: string;
+  org: string;
+  img: string;
+  link: string;
+}) {
+  return (
+<div className="group/cert bg-white border border-gray-200 rounded-xl px-6 py-2 overflow-hidden transition-all duration-700 ease-out hover:shadow-md">
+
+  <div className="h-0 opacity-0 translate-y-4
+    transition-all duration-700 ease-out
+    group-hover/cert:h-32 group-hover/cert:opacity-100 group-hover/cert:translate-y-0
+  ">
+
+        <div className="mt-2 h-32 bg-gray-50 flex items-center justify-center rounded-lg">
+          <img src={img} alt={title} className="h-20 object-contain" />
+        </div>
+      </div>
+      {/* Always visible */}
+      <div className="py-4">
+        <p className="text-gray-800 font-medium">{title}</p>
+        <p className="text-xs text-gray-500">{org}</p>
+        <a
+          href={link}
+          target="_blank"
+          className="text-xs text-blue-600 inline-block hover:underline underline-offset-4"
+        >
+          Verify ↗
+        </a>
+      </div>
+    </div>
   );
 }
