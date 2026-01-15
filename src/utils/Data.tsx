@@ -12,6 +12,9 @@ import pythonMentor from "../assets/images/python_mentor.png";
 import sqlpng from "../assets/images/sqlpng.png";
 import dip_in_prom from "../assets/images/dp.png";
 import dip_in_ds from "../assets/images/dds.png";
+import fastapi from "../assets/blog/fastapi.png";
+import react from "../assets/blog/react.png";
+import javag from "../assets/blog/javag.png";
  
 type ProjectType =
     | "Full Stack Web App"
@@ -43,6 +46,16 @@ type Certificate = {
     verify_link: string,
     image: string
 }
+
+export type Blog = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  category: string[];
+  readTime: string;
+  blog_link?:string
+};
 
 export const Projects: Project[] = [
   {
@@ -331,4 +344,35 @@ export const certificates: Certificate[] = [
     verify_link: "https://coursera.org/share/a1f0fee03f7eb40117971151c4d84114",
     image: linux
   },
+];
+
+export const blogs: Blog[] = [
+  {
+    id: 1,
+    title: "Getting Started with FastAPI - Build Your First API",
+    description: "A step-by-step guide to setting up FastAPI, creating endpoints, and running your first Python backend service.",
+    image: fastapi,
+    category: ["BACKEND", "FastAPI","Python"],
+    readTime: "20 min read",
+    blog_link: ""
+  },
+  {
+  id: 2,
+  title: "React for Beginners - Your First Frontend App",
+  description: "A step-by-step guide to setting up React, understanding components, and rendering your first interactive page.",
+  image: react,
+  category: ["FRONTEND", "REACT","JavaScript"],
+  readTime: "15 min read",
+  blog_link: ""
+  },
+  {
+    id: 3,
+    title: "Java Generics Explained — From Basics to Practical Use",
+    description: "A practical guide to understanding Java Generics and applying them to real-world programming problems/ use-cases.",
+    image: javag,
+    category: ["JAVA"],
+    readTime: "17 min read",
+    blog_link: ""
+  },
+
 ];
