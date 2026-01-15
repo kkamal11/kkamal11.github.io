@@ -4,7 +4,7 @@ export default function Blogs() {
   return (
     <section className="min-h-screen bg-[#f7f7f5] flex items-center justify-center px-6">
       <div className="text-center space-y-6 max-w-md">
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-3">
           <div className="p-6 rounded-full bg-white border border-gray-200 shadow-sm">
             <Wrench size={40} className="text-gray-600" />
           </div>
@@ -13,9 +13,9 @@ export default function Blogs() {
           Blogs under development
         </h1>
         <p className="text-gray-500 text-sm leading-relaxed">
-          Sorry for the inconvenience — I am currently working on writing and curating
+          Sorry for the inconvenience - I am currently working on writing and curating
           technical blogs. In the meantime, you can explore the official documentation
-          of the technologies I work with below.
+          of the few technologies I work with below.
         </p>
         <div className="flex flex-col gap-3 pt-2">
           <DocLink
@@ -47,7 +47,7 @@ export default function Blogs() {
             label="Vuejs Documentation"
           />
         </div>
-        <div className="flex items-center justify-center gap-2 text-xs text-gray-400 py-6">
+        <div className="flex items-center justify-center gap-2 text-xs text-gray-400 pb-6">
           <BookOpen size={14} />
           <span>New articles coming soon</span>
         </div>

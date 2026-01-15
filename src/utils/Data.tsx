@@ -19,6 +19,7 @@ import qty_self_2 from "../assets/projects/Home.png"
 import qty_self_1 from "../assets/projects/qapp1.png"
 import MLP from "../assets/projects/ml_project.png"
 import ipl from "../assets/projects/ipl.webp"
+// import iitm_p from "../assets/projects/iitmp.png"
 
 type ProjectType =
     | "Full Stack Web App"
@@ -31,8 +32,7 @@ type Project = {
     id:number,
     title: string,
     btm_text: string,
-    has_ext_button?: boolean,
-    ext_button_html?: string,
+    ext_buttons?: {href:string, label:string, img:string}[],
     description: string;
     tags: string[];
     githubUrl: string;
@@ -64,7 +64,7 @@ export type Blog = {
 export const Projects: Project[] = [
   {
     id: 1,
-    title: "Bookly — FastAPI Beyond CRUD",
+    title: "Bookly - FastAPI Beyond CRUD",
     btm_text: "Production-grade backend API with auth, email, logging, and testing",
     description:
       "A production-ready backend API showcasing clean architecture, async operations, authentication, background tasks, and automated emails.",
@@ -152,22 +152,26 @@ export const Projects: Project[] = [
       "Responsive elegant UI"
     ],
     tags: ["Java", "Spring Boot","Cloud"],
-    imgPath: ["./assets/projects/contact_manager.png"],
+    imgPath: [],
     period: 'November 2024 - December 2024',
     type:"Full Stack Web App"
   },
   {
     id: 4,
-    title: "Recipe for Rating — Predict Food Ratings using ML",
+    title: "Recipe for Rating - Predict Food Ratings using ML",
     btm_text: "Machine learning system for predicting restaurant food ratings",
-    has_ext_button: true,
-    ext_button_html: `
-      <a class="inline-block" href="https://nbviewer.org/github/kkamal11/Recipe-for-Rating-Predict-Food-Ratings-using-ML/blob/main/21f2000804-notebook-t12024.ipynb" target="_blank">
-        <img src="https://img.shields.io/badge/Open%20in-Nbviewer-blue" />
-      </a>
-      <a class="inline-block" href="https://github.com/kkamal11/Recipe-for-Rating-Predict-Food-Ratings-using-ML/blob/main/21f2000804-notebook-t12024.ipynb" target="_blank">
-        <img src="https://img.shields.io/badge/Open%20in-Google%20Colab-blue?logo=googlecolab" />
-      </a>`,
+    ext_buttons: [
+      {
+        href: "https://nbviewer.org/github/kkamal11/Recipe-for-Rating-Predict-Food-Ratings-using-ML/blob/main/21f2000804-notebook-t12024.ipynb",
+        label: "Open in Nbviewer",
+        img: "https://img.shields.io/badge/Open%20in-Nbviewer-blue",
+      },
+      {
+        href: "https://github.com/kkamal11/Recipe-for-Rating-Predict-Food-Ratings-using-ML/blob/main/21f2000804-notebook-t12024.ipynb",
+        label: "Open in Colab",
+        img: "https://img.shields.io/badge/Open%20in-Google%20Colab-blue?logo=googlecolab",
+      },
+    ],
     description:
       "A machine learning project focused on predicting restaurant food ratings using structured data and multiple classification algorithms.",
     githubUrl: "https://github.com/kkamal11/Recipe-for-Rating-Predict-Food-Ratings-using-ML",
@@ -188,7 +192,7 @@ export const Projects: Project[] = [
 
   {
     id: 5,
-    title: "Uncovering IPL Insights — Data Analysis of 15 Years of Cricket",
+    title: "Uncovering IPL Insights - Data Analysis of 15 Years of Cricket",
     btm_text: "Exploratory data analysis and visualization on IPL datasets",
     description:
       "An exploratory data analysis project on IPL match data (2008–2022) aimed at uncovering patterns and insights related to teams, venues, toss decisions, and players.",

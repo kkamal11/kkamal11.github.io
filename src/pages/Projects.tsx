@@ -109,6 +109,11 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                     </span>
                                 ))}
                                 </div>
+                                <div className={proj.ext_buttons ? "flex gap-4 justify-base item-center mt-4 md:mt-6" : ''}>
+                                  {proj.ext_buttons?.map((btn) => (
+                                  <MLNotebookButtons key={btn.href} btn={btn} />
+                                ))}
+                                </div>
                             </div>
                         </div>
                  </div>
@@ -127,5 +132,24 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
           : null}
       </div>
     </section>
+  );
+}
+
+
+type MLButton = {
+  href: string;
+  label: string;
+  img: string;
+};
+
+function MLNotebookButtons({ btn }: { btn: MLButton }) {
+  return (
+    <a
+      href={btn.href}
+      target="_blank"
+      rel="noreferrer"
+    >
+      <img src={btn.img} alt={btn.label} />
+    </a>
   );
 }

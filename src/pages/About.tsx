@@ -106,9 +106,21 @@ export default function About() {
             </div>
 
             <Timeline>
-              <TimelineItem title="Project Intern — NIT Kurukshetra" period="Jan–May 2022" desc="Worked on academic software projects and documentation." />
-              <TimelineItem title="Python Mentor — IIT Madras" period="Aug–Sep 2022" desc="Mentored students on programming and debugging." />
-              <TimelineItem title="Teaching Assistant — ML Foundations" period="Sep–Dec 2022" desc="Supported learners with coursework and conceptual clarity." />
+              <TimelineItem
+                title="Python Academic Mentor - IIT Madras"
+                period="Aug–Sep 2022"
+                desc="Guided students in enhancing their computational thinking and problem-solving abilities through hands-on Python programming."
+              />
+              <TimelineItem
+                title="Machine Learning TA — IIT Madras"
+                period="Sep–Dec 2022"
+                desc="Assisted students in strengthening their analytical reasoning and conceptual understanding of machine learning through structured guidance and practical examples."
+              />
+              <TimelineItem
+                title="Project Intern - NIT Kurukshetra"
+                period="Jan–May 2022"
+                desc="Contributed to applied academic projects by translating problem statements into structured technical solutions and well-documented implementations."
+              />
             </Timeline>
           </div>
 
@@ -152,12 +164,12 @@ export default function About() {
             onClick={toggleCertCount}
             className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
             >
-            {showAllCerts ? "Show Less" : "Expand All"}
+            {showAllCerts ? "Show Less" : "Show All"}
             </button>
         </div>
 
           <p className="text-sm text-gray-500 text-center">
-              I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across software engineering, machine learning, and artificial intelligence.          </p>
+              I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across Software Engineering, Machine Learning, and Artificial Intelligence.          </p>
         </div>
 
       </div>
