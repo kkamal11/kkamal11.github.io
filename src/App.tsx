@@ -9,6 +9,7 @@ import Projects from "./pages/Projects"
 import VisionComp from "./components/Vision"
 import Blogs from "./pages/Blogs"
 import RedirectHandler from "./utils/RedirectHandler"
+import ScrollToTop from "./utils/ScrollToTop"
 
 const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects']
 
@@ -23,6 +24,7 @@ function App() {
     <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
       <Navbar />
       <main className="flex-1 pt-16">
+        <ScrollToTop />
         <RedirectHandler />
         <Routes>
           <Route path="/" element={<Home />} />

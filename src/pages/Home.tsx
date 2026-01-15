@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import MySkills from "../components/MySkills";
 import AboutComponent from "../components/AboutMeOnHome";
+import Projects from './Projects'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple } from 'phosphor-react';
 import kml from '../assets/im2.png'
 
@@ -120,6 +121,9 @@ export default function Home() {
       {/* skills  */}
       <div>
         <MySkills />
+      </div>
+      <div>
+        <Projects showAll={false} />
       </div>
     </>
   );

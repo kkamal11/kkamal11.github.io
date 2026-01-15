@@ -1,8 +1,13 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { GithubGrayButton, GithubGrayButtonRound } from "../components/SocialButtons";
 import { Lightning } from "phosphor-react";
 import ImageCard from '../components/PimageCard';
 import apiImg from '../assets/images/api.png'
+
+type ProjectsSectionProps = {
+  showAll?: boolean;
+};
 
 type ProjectType =
     | "Full Stack Web App"
@@ -222,16 +227,16 @@ const Projects: Project[] = [
   }
 ];
 
-export default function ProjectsSection() {
+export default function ProjectsSection({ showAll = true }: ProjectsSectionProps) {
   const [openId, setOpenId] = useState<number | null>(null);
-
+  const visibleProjects = showAll ? Projects : Projects.slice(0, 3);
   return (
     <section className="bg-white py-10 px-12">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-4">
           <div>
-            <h2 className="text-4xl font-medium text-gray-900 leading-tight">
+            <h2 className="text-4xl font-medium text-gray-700 leading-tight">
               Explore My Projects <br /> Journey
             </h2>
           </div>
@@ -247,7 +252,7 @@ export default function ProjectsSection() {
 
         {/* List */}
         <div className="divide-y divide-gray-200">
-          {Projects.map((proj) => {
+          {visibleProjects.map((proj) => {
             const isOpen = openId === proj.id;
 
             return (
@@ -298,7 +303,7 @@ export default function ProjectsSection() {
                                     <p className="font-medium">Features:</p>
                                     <ul>
                                         {proj.features.map(feat => {
-                                          return  <li><Lightning className="inline-block" size={16}  />{feat}</li>
+                                          return  <li><Lightning className="inline-block" size={16} key={feat}  />{feat}</li>
                                         })}
                                     </ul> 
                                   </div>
@@ -330,6 +335,14 @@ export default function ProjectsSection() {
             );
           })}
         </div>
+        {!showAll ? 
+            <div className="flex items-center justify-center mt-2">
+              <NavLink to={'/projects'}
+              className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+              > See All
+              </NavLink>
+          </div>
+          : null}
       </div>
     </section>
   );

@@ -36,14 +36,14 @@ export default function MySkills() {
 
   return (
     <section className="bg-[#F8F8F8] py-8">
-      <h1 className="text-3xl text-gray-800 font-semibold text-center mb-6">
+      <h1 className="text-3xl text-gray-700 font-semibold text-center mb-6">
         My Skill Highlights
       </h1>
 
       <div className="max-w-7xl px-2 sm:px-4 md:px-24">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          {visibleSkills.map((item) => (
-            <SkillCard key={item.name} item={item} />
+          {visibleSkills.map((item, i) => (
+            <SkillCard key={i} item={item} />
         ))}
         </div>
       </div>
