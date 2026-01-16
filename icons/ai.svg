@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 256 256"
+     width="256"
+     height="256"
+     role="img"
+     aria-label="Artificial Intelligence icon">
+
+  <!-- Background -->
+  <rect width="256" height="256" rx="28" fill="#7C3AED"/>
+
+  <!-- Brain -->
+  <path d="M96 64
+           C72 64, 64 88, 64 112
+           C64 136, 72 152, 88 156
+           C88 180, 104 196, 128 196
+           C152 196, 168 180, 168 156
+           C184 152, 192 136, 192 112
+           C192 88, 184 64, 160 64
+           C152 48, 136 48, 128 64
+           C120 48, 104 48, 96 64 Z"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linejoin="round"/>
+
+  <!-- Circuit -->
+  <circle cx="104" cy="112" r="5" fill="#FFFFFF"/>
+  <circle cx="128" cy="96" r="5" fill="#FFFFFF"/>
+  <circle cx="152" cy="112" r="5" fill="#FFFFFF"/>
+  <line x1="104" y1="112" x2="128" y2="96" stroke="#FFFFFF" stroke-width="4"/>
+  <line x1="128" y1="96" x2="152" y2="112" stroke="#FFFFFF" stroke-width="4"/>
+</svg>
