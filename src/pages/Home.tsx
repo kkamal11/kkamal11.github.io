@@ -58,6 +58,8 @@ export default function Home() {
         <img
           src="/im2.webp"
           alt="Profile"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover object-top grayscale contrast-110"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#F8F8F8] via-[#F8F8F8]/80 to-transparent" />

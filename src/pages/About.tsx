@@ -254,7 +254,7 @@ function CertCard({
         `}
       >
         <div className="flex items-center justify-center">
-          <img src={img} alt={title} className="object-fit mb-4" />
+          <img src={img} alt={title} loading="lazy" className="object-fit mb-4" />
         </div>
       </div>
 

@@ -37,6 +37,7 @@ function BlogCard({ blog }: { blog: Blog }) {
         <img
           src={blog.image}
           alt={blog.title}
+          loading="lazy"
           className="w-full h-60 object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
