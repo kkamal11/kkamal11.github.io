@@ -32,10 +32,7 @@ export default function Navbar(){
             </li>
           ))}
         </ul>
-
-        {/* CTA */}
         <BookACallBtn />
-
         {/* Mobile Menu Button */}
         <button
           className="md:hidden text-xl"

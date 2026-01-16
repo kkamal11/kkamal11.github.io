@@ -177,7 +177,6 @@ export default function About() {
   );
 }
 
-/* ===== Helpers ===== */
 
 function EduBlock({
   institute,

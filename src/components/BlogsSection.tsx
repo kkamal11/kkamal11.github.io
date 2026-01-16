@@ -10,7 +10,7 @@ export default function BlogsSection() {
           <span className="inline-flex items-center gap-2 text-xs px-3 py-1 rounded-full bg-white border border-gray-200 text-gray-500">
             ● Blogs
           </span>
-          <h2 className="text-4xl font-[400px] tracking-tight text-gray-800 whitespace-nowrap">
+          <h2 className="text-4xl font-[400px] tracking-tight text-gray-800">
             Technology Insights & Trends
           </h2>
         </div>

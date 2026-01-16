@@ -4,22 +4,17 @@ import { Laptop, GraduationCap, Sparkle } from "phosphor-react";
 export default function About() {
   return (
     <div className="relative bg-[#f7f7f5] mx-4 md:mx-18 py-12 text-gray-600">
-      {/* Title */}
       <div className="flex items-center gap-4 mb-2">
         <h1 className="text-3xl text-gray-700 whitespace-nowrap">About Me</h1>
         <div className="h-px flex-1 bg-gray-300 opacity-60 mr-32 lg:mr-72" />
       </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr_1fr] gap-10 text-sm">
-        {/* Left column */}
         <div className="">
           <p className="leading-relaxed">
             I specialize in building intelligent, scalable software solutions by combining modern web development with data-driven thinking. My work spans from intuitive frontends to efficient backend services and analytics-ready systems. I enjoy turning complex problems into simple, reliable products that users and businesses can trust.
           </p>
           <Arrow />
         </div>
-
-        {/* Middle column (Work) */}
         <div className="relative top-6">
           <div className="rounded-xl p-6 bg-white border border-gray-200 space-y-4 shadow-sm">
             <div className="flex items-center gap-4">
@@ -42,8 +37,6 @@ export default function About() {
             </div>
           </div>
         </div>
-
-        {/* Right column (Education bottom aligned) */}
         <div className="flex flex-col justify-end">
           <div className="rounded-xl p-6 space-y-4">
             <div className="flex items-center gap-3">
@@ -52,7 +45,6 @@ export default function About() {
               </div>
               <h4 className="text-sm uppercase tracking-widest text-gray-500">Education</h4>
             </div>
-
             <div className="space-y-3">
             <div className="flex items-start gap-2">
                 <Sparkle
