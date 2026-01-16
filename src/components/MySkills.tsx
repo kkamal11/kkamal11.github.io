@@ -34,7 +34,7 @@ export default function MySkills() {
 
   return (
     <section className="bg-[#F8F8F8] pb-12">
-      <h1 className="text-2xl sm:text-4xl font-[400px] tracking-tight text-gray-800 text-center mb-8">
+      <h1 className="text-4xl font-[400px] tracking-tight text-gray-800 text-center mb-8">
         My Skill Highlights
       </h1>
 
@@ -48,7 +48,7 @@ export default function MySkills() {
       <div className="flex items-center justify-center mt-10">
         <button
           onClick={() => setExpanded(prev => !prev)}
-          className="border border-gray-900 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-900 hover:text-white transition cursor-pointer"
+          className="border border-gray-800 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-black hover:text-white transition cursor-pointer"
         >
           {expanded ? "Show Less" : "Expand All"}
         </button>
