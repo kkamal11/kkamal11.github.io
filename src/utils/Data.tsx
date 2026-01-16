@@ -396,6 +396,7 @@ export const skills = [
   { name: "Django", icon: "/icons/dj.svg" },
   { name: "PostgreSQL", icon: "/icons/pgsql.svg" },
   { name: "Redis", icon: "/icons/redis.svg" },
+  { name: "Celery", icon: "/icons/celery.svg" },
   { name: "Java", icon: "/icons/java.svg" },
   { name: "Spring Boot", icon: "/icons/springboot.svg" },
   { name: "Hibernate", icon: "/icons/hibernate.svg" },
