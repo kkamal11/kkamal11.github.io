@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 256 256"
+     width="256"
+     height="256"
+     role="img"
+     aria-label="C programming language icon">
+
+  <!-- Background -->
+  <rect width="256" height="256" rx="28" fill="#00599C"/>
+
+  <!-- Outer hexagon -->
+  <polygon points="128,36 208,82 208,174 128,220 48,174 48,82"
+           fill="none"
+           stroke="#FFFFFF"
+           stroke-width="10"/>
+
+  <!-- Letter C -->
+  <path d="M155 92
+           C140 78, 100 78, 86 104
+           C72 128, 72 160, 86 184
+           C100 210, 140 210, 155 196"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="14"
+        stroke-linecap="round"/>
+</svg>

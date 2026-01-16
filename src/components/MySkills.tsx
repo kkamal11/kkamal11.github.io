@@ -1,33 +1,8 @@
 import { useState } from "react";
-
-const stack = [
-    { name: "HTML", icon: "/icons/html5.svg" },
-    { name: "CSS", icon: "/icons/css.svg" },
-    { name: "Tailwind CSS", icon: "/icons/tcss.svg" },
-    { name: "JavaScript", icon: "/icons/js.svg" },
-    { name: "React JS", icon: "/icons/react.svg" },
-    { name: "Vue JS", icon: "/icons/vue.svg" },
-    { name: "React JS", icon: "/icons/react.svg" },
-    { name: "Python", icon: "/icons/python.svg" },
-    { name: "Java", icon: "/icons/java.svg" },
-    { name: "C", icon: "/icons/c.svg" },
-    { name: "FastAPI", icon: "/icons/fastapi.svg" },
-    { name: "Flask", icon: "/icons/flask.svg" },
-    { name: "Django", icon: "/icons/django.svg" },
-    { name: "Spring Boot", icon: "/icons/sping.svg" },
-    { name: "Microservices", icon: "/icons/msc.svg" },
-    { name: "Node JS", icon: "/icons/node.svg" },
-    { name: "Numpy", icon: "/icons/python.svg" },
-    { name: "Pandas", icon: "/icons/python.svg" },
-    { name: "Matplotlib", icon: "/icons/python.svg" },
-    { name: "sklearn", icon: "/icons/python.svg" },
-    { name: "GitHub", icon: "/icons/github.svg" },
-    { name: "MongoDB", icon: "/icons/mongodb.svg" },
-    { name: "Docker", icon: "/icons/docker.svg" },
-];
+import { skills as stack } from "../utils/Data"
 
 export default function MySkills() {
-  const DEFAULT_COUNT = 25;
+  const DEFAULT_COUNT = 24;
   const [expanded, setExpanded] = useState(false);
 
   const visibleSkills = expanded ? stack : stack.slice(0, DEFAULT_COUNT);

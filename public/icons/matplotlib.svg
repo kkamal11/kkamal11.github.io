@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 256 256"
+     width="256"
+     height="256">
+
+  <!-- Background -->
+  <rect x="0" y="0" width="256" height="256" rx="28" fill="#11557C"/>
+
+  <!-- Axes -->
+  <line x1="56" y1="200" x2="200" y2="200"
+        stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+  <line x1="56" y1="56" x2="56" y2="200"
+        stroke="#FFFFFF" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Plot line -->
+  <path d="M56 150
+           C80 90, 120 90, 144 150
+           C168 210, 200 210, 200 150"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="8"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Points -->
+  <circle cx="56" cy="150" r="6" fill="#FFFFFF"/>
+  <circle cx="144" cy="150" r="6" fill="#FFFFFF"/>
+  <circle cx="200" cy="150" r="6" fill="#FFFFFF"/>
+</svg>
