@@ -19,13 +19,13 @@ export default function BlogsSection() {
             <BlogCard key={blog.id} blog={blog} />
           ))}
         </div>
-       </div>
         <div className="flex items-center justify-center mt-6 sm:mt-12">
             <NavLink to={'/blog'}
             className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
             > View Blogs
             </NavLink>
         </div>
+       </div>
     </section>
   );
 }
@@ -37,7 +37,7 @@ function BlogCard({ blog }: { blog: Blog }) {
         <img
           src={blog.image}
           alt={blog.title}
-          className="w-full h-60 object-fit transition-transform duration-500 ease-out group-hover:scale-105"
+          className="w-full h-60 object-cover transition-transform duration-500 ease-out group-hover:scale-105"
         />
       </div>
       <div className="p-4 space-y-2">
