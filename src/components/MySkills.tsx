@@ -27,63 +27,61 @@ const stack = [
 ];
 
 export default function MySkills() {
-    const DEFAULT_COUNT = 15;
-    const [expanded, setExpanded] = useState(false);
-    const visibleSkills = expanded ? stack : stack.slice(0, DEFAULT_COUNT);
-    function toggleSkills() {
-        setExpanded(prev => !prev);
-    }
+  const DEFAULT_COUNT = 25;
+  const [expanded, setExpanded] = useState(false);
+
+  const visibleSkills = expanded ? stack : stack.slice(0, DEFAULT_COUNT);
 
   return (
-    <section className="bg-[#F8F8F8] py-8">
-      <h1 className="text-2xl sm:text-3xl text-gray-700 font-semibold text-center mb-6">
+    <section className="bg-[#F8F8F8] pb-12">
+      <h1 className="text-2xl sm:text-4xl font-[400px] tracking-tight text-gray-800 text-center mb-8">
         My Skill Highlights
       </h1>
 
-      <div className="max-w-7xl px-4 sm:px-6 md:px-24">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-16">
+        <div className="flex flex-wrap gap-3 justify-center">
           {visibleSkills.map((item, i) => (
-            <SkillCard key={i} item={item} />
-        ))}
+            <SkillPill key={i} item={item} />
+          ))}
         </div>
       </div>
-          <div className="flex items-center justify-center mt-12">
-            <button
-            onClick={toggleSkills}
-            className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
-            >
-            {expanded ? "Show Less" : "Expand All"}
-            </button>
-        </div>
+      <div className="flex items-center justify-center mt-10">
+        <button
+          onClick={() => setExpanded(prev => !prev)}
+          className="border border-gray-900 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-gray-900 hover:text-white transition cursor-pointer"
+        >
+          {expanded ? "Show Less" : "Expand All"}
+        </button>
+      </div>
     </section>
   );
 }
 
-function SkillCard({ item }: { item: { name: string; icon: string } }) {
+function SkillPill({ item }: { item: { name: string; icon: string } }) {
   return (
     <div
       className="
-        relative p-4 rounded-lg
-        bg-gradient-to-br from-[#989898] via-[#686868] to-[#787777]
-        border border-white/5
-        shadow-[0_10px_30px_rgba(0,0,0,0.4)]
-        flex flex-col items-center justify-center gap-4
-        transition-all duration-300 ease-out
-        hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]
-        cursor-pointer group
+        group flex items-center gap-2
+        px-4 py-2
+        rounded-2xl
+        bg-white
+        border border-gray-200
+        text-xs uppercase tracking-wide
+        text-gray-600
+        transition-all duration-200
+        hover:border-gray-400
+        hover:text-gray-900
+        hover:-translate-y-[2px]
+        hover:shadow-sm
+        cursor-default
       "
     >
-      {/* subtle gloss */}
-      <div className="absolute inset-0 rounded-2xl bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
       <img
         src={item.icon}
         alt={item.name}
-        className="w-14 h-14 object-contain transition-transform duration-300 group-hover:scale-110"
+        className="w-4 h-4 object-contain opacity-70 group-hover:opacity-100"
       />
-
-      <p className="text-xs tracking-widest text-gray-100 uppercase font-medium">
-        {item.name}
-      </p>
+      <span>{item.name}</span>
     </div>
   );
 }
