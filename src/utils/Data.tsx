@@ -1,25 +1,24 @@
-import apiImg from '../assets/images/api.png'
-import HTML_CSS_JS from "../assets/images/HTML_CSS_JS.png";
+import apiImg from '../assets/images/api.webp'
+import HTML_CSS_JS from "../assets/images/HTML_CSS_JS.webp";
 import excel from "../assets/images/excel.jpg";
 import foundationCerti from "../assets/images/foundationCerti.jpg";
-import javascriptBasic from "../assets/images/javascriptBasic.png";
-import linux from "../assets/images/linux.png";
+import javascriptBasic from "../assets/images/javascriptBasic.webp";
+import linux from "../assets/images/linux.webp";
 import mlt from "../assets/images/mlt.png";
-import nptel from "../assets/images/nptel.jpg";
-import pythonHackerrank from "../assets/images/python-hackerrank.png";
+import nptel from "../assets/images/nptel.webp";
+import pythonHackerrank from "../assets/images/python-hackerrank.webp";
 import pythonCoursera from "../assets/images/python.jpg";
-import pythonMentor from "../assets/images/python_mentor.png";
-import sqlpng from "../assets/images/sqlpng.png";
+import pythonMentor from "../assets/images/python_mentor.webp";
+import sqlpng from "../assets/images/sqlpng.webp";
 import dip_in_prom from "../assets/images/dp.png";
 import dip_in_ds from "../assets/images/dds.png";
-import fastapi from "../assets/blog/fastapi.png";
-import react from "../assets/blog/react.png";
-import javag from "../assets/blog/javag.png";
+import fastapi from "../assets/blog/fastapi.webp";
+import react from "../assets/blog/react.webp";
+import javag from "../assets/blog/javag.webp";
 import qty_self_2 from "../assets/projects/Home.png"
-import qty_self_1 from "../assets/projects/qapp1.png"
+import qty_self_1 from "../assets/projects/qapp1.webp"
 import MLP from "../assets/projects/ml_project.png"
 import ipl from "../assets/projects/ipl.webp"
-// import iitm_p from "../assets/projects/iitmp.png"
 
 type ProjectType =
     | "Full Stack Web App"

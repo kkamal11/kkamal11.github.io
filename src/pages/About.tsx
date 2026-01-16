@@ -1,5 +1,5 @@
 import { Laptop, GraduationCap, Briefcase, Sparkle, Medal } from "phosphor-react";
-import focusImg from '../assets/focus.jpg'
+import focusImg from '../assets/focus.webp'
 import { certificates } from "../utils/Data";
 import { useState } from "react";
 export default function About() {

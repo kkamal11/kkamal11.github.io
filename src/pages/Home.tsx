@@ -4,7 +4,6 @@ import AboutComponent from "../components/AboutMeOnHome";
 import BlogsSection from "../components/BlogsSection";
 import Projects from './Projects'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple } from 'phosphor-react';
-import kml from '../assets/im2.png'
 
 export default function Home() {
   const [yoe, setYOE] = useState(0);
@@ -57,7 +56,7 @@ export default function Home() {
         className="absolute right-0 top-0 h-full w-[65%] z-0 transition-transform duration-500 ease-out"
         style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}>
         <img
-          src={kml}
+          src="/im2.webp"
           alt="Profile"
           className="w-full h-full object-cover object-top grayscale contrast-110"
         />
