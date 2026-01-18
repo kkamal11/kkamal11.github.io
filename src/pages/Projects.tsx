@@ -4,6 +4,7 @@ import { GithubGrayButton, GithubGrayButtonRound } from "../components/SocialBut
 import { Lightning } from "phosphor-react";
 import ImageCard from '../components/PimageCard';
 import { Projects } from "../utils/Data";
+import { Tag } from "../components/Tag";
 
 type ProjectsSectionProps = {
   showAll?: boolean;
@@ -58,12 +59,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
 
                   <div className="flex justify-start md:justify-end gap-2">
                     {proj.tags?.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 text-xs rounded bg-gray-50 text-gray-600 border border-gray-200"
-                      >
-                        {tag}
-                      </span>
+                      <Tag slotValue={tag} key={tag} />
                     ))}
                   </div>
                 </div>
@@ -101,12 +97,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                 <p className="font-medium mt-4">Tech Stack:</p>
                                 <div className="flex flex-wrap gap-2 mt-1">
                                 {proj.techUsed.map((tech) => (
-                                    <span
-                                    key={tech}
-                                    className="px-2 py-1 text-xs rounded bg-gray-50 border border-gray-200 text-gray-700 hover:scale-105 transition hover:cursor-pointer"
-                                    >
-                                    {tech}
-                                    </span>
+                                  <Tag slotValue={tech} key={tech} doTransition={true} />
                                 ))}
                                 </div>
                                 <div className={proj.ext_buttons ? "flex gap-4 justify-base item-center mt-4 md:mt-6" : ''}>
