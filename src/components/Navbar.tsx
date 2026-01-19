@@ -15,12 +15,9 @@ export default function Navbar(){
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#F8F8F8] backdrop-blur ">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
         <div className="text-xl font-bold tracking-tight">
              <NavLink to='/'>KAMAL</NavLink>     
         </div>
-
-        {/* Desktop Links */}
         <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700">
           {links.map((link) => (
             <li key={link.name}>
