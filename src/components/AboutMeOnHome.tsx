@@ -56,7 +56,8 @@ export default function About() {
                 <p className="text-gray-800 font-medium">
                     B.Tech — National Institute of Technology, Kurukshetra
                 </p>
-                <p className="text-xs text-gray-500">Engineering</p>
+                  <p className="text-xs text-gray-500">Engineering</p>
+                  <p className="text-[10px] text-gray-500">2019 - 2023</p>
                 </div>
             </div>
             <div className="flex items-start gap-2">
@@ -69,7 +70,8 @@ export default function About() {
                 <p className="text-gray-800 font-medium">
                     B.Sc — Indian Institute of Technology, Madras
                 </p>
-                <p className="text-xs text-gray-500">Programming & Data Science</p>
+                  <p className="text-xs text-gray-500">Programming & Data Science</p>
+                  <p className="text-[10px] text-gray-500">2021 - 2025</p>
                 </div>
             </div>
             </div>
