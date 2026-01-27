@@ -6,7 +6,6 @@ import VisionComp from "./components/Vision"
 import RedirectHandler from "./utils/RedirectHandler"
 import ScrollToTop from "./utils/ScrollToTop"
 import PageLoader from "./components/PageLoader"
-
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
