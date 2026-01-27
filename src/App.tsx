@@ -1,15 +1,18 @@
+import { Suspense, lazy } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
-import Home from "./pages/Home"
-import About from "./pages/About"
 import Navbar from "./components/Navbar"
-import Contact from "./pages/Contact"
 import Footer from "./components/Footer"
-import NotFoundPage from "./pages/NotFoundPage"
-import Projects from "./pages/Projects"
 import VisionComp from "./components/Vision"
-import Blogs from "./pages/Blogs"
 import RedirectHandler from "./utils/RedirectHandler"
 import ScrollToTop from "./utils/ScrollToTop"
+import PageLoader from "./components/PageLoader"
+
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Projects = lazy(() => import("./pages/Projects"));
+const Blogs = lazy(() => import("./pages/Blogs"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects']
 
@@ -26,14 +29,16 @@ function App() {
       <main className="flex-1 pt-16">
         <ScrollToTop />
         <RedirectHandler />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Blogs />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Blogs />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </Suspense>
       </main>
       {!shouldBeHidden && <VisionComp />}
       <Footer />
