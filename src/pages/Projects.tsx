@@ -71,7 +71,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                     ${isOpen ? "opacity-100 mt-6" : "max-h-0 opacity-0"}
                   `}
                 >
-                  <div className="ml-4 md:ml-0 bg-white border border-gray-200 rounded p-6 text-sm text-gray-600 shadow-sm">
+                  <div className="ml-0 bg-white border border-gray-200 rounded p-6 text-sm text-gray-600 shadow-sm">
                         <div className="">
                             <div className="flex flex-col">
                                 <p className="leading-relaxed pb-3 text-gray-700 text-[15px] italic tracking-[0.01em]">{proj.description}</p>

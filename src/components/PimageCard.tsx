@@ -6,7 +6,6 @@ type Props = {
 export default function PimageCard({ src, alt = "" }: Props) {
   return (
     <div className="rounded-lg overflow-hidden">
-      {/* Image */}
         <img
           src={src}
           alt={alt}
