@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-import MySkills from "../components/MySkills";
+import { lazy, useEffect, useState } from "react";
 import AboutComponent from "../components/AboutMeOnHome";
-import BlogsSection from "../components/BlogsSection";
 import Projects from './Projects'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple } from 'phosphor-react';
+
+const BlogsSection = lazy(() => import("../components/BlogsSection"));
+const MySkills = lazy(() => import("../components/MySkills"));
 
 export default function Home() {
   const [yoe, setYOE] = useState(0);
@@ -11,16 +12,16 @@ export default function Home() {
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const yoeInterval = setInterval(() => {
       setYOE(prev => {
         if (prev >= 3) {
-          clearInterval(interval);
+          clearInterval(yoeInterval);
           return prev;
         }
         return prev + 1;
       });
     }, 300);
-    return () => clearInterval(interval);
+    return () => clearInterval(yoeInterval);
   }, []);
 
   useEffect(() => {
