@@ -1,21 +1,21 @@
 import { Suspense, lazy } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
 import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
-import VisionComp from "./components/Vision"
 import RedirectHandler from "./utils/RedirectHandler"
-import ScrollToTop from "./utils/ScrollToTop"
 import PageLoader from "./components/PageLoader"
-import ProtectedRoute from "./vault/ProtectedRoute";
 
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
+const VisionComp = lazy(() => import("./components/Vision"));
+const Footer = lazy(() => import("./components/Footer"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Blogs = lazy(() => import("./pages/Blogs"));
+const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
 const VaultLogin = lazy(() => import("./components/VaultLogin"));
 const PrivateVault = lazy(() => import("./pages/PrivateVault"));
+const ProtectedRoute = lazy(() => import("./vault/ProtectedRoute"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects']
