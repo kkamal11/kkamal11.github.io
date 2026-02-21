@@ -1,0 +1,1 @@
+import{k as r,j as t,P as s,l as u}from"./index-zbfwIcnV.js";const i="kishorkamal7091@gmail.com";function l({children:a}){const{user:e,loading:o}=r();return o?t.jsx(s,{}):e?.email!==i?t.jsx(u,{to:"/vault"}):a}export{l as default};
