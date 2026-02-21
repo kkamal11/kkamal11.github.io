@@ -2,7 +2,7 @@ import { useState } from "react";
 import { skills as stack } from "../utils/Data";
 import Reveal from "./Reveal";
 
-const categories = ["All", "Frontend", "Backend", "Database", "AI/ML", "Tools"];
+const categories = ["All", "Frontend", "Backend", "Database", "AI/ML", "Tools", "Cloud"];
 
 export default function MySkills() {
   const DEFAULT_COUNT = 24;

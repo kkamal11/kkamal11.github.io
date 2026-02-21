@@ -428,5 +428,8 @@ export const skills = [
   { name: "Software Engineering", icon: "/icons/se.svg", category: "Tools" },
   { name: "Software Testing", icon: "/icons/st.svg", category: "Tools" },
   { name: "Data Structure and Algorithms", icon: "/icons/dsa.svg", category: "Tools" },
+  { name: "Copilot", icon: "/icons/copilot.svg", category: "Tools" },
+  { name: "Docker", icon: "/icons/docker.svg", category: "Tools" },
+  {name:"AWS", icon:"/icons/aws.svg", category: "Cloud" },
 
 ];
