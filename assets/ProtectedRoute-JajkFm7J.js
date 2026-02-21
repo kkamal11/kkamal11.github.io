@@ -1,0 +1,1 @@
+import{t as r,j as t,P as s,v as u}from"./index-RLwhNeFw.js";const i="kishorkamal7091@gmail.com";function m({children:a}){const{user:e,loading:o}=r();return o?t.jsx(s,{}):e?.email!==i?t.jsx(u,{to:"/vault"}):a}export{m as default};
