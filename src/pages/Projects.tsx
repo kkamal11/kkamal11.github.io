@@ -80,8 +80,8 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                   <div>
                                     <p className="font-medium">Features:</p>
                                     <ul>
-                                        {proj.features.map(feat => {
-                                          return  <li><Lightning className="inline-block" size={16} key={feat}  />{feat}</li>
+                                        {proj.features.map((feat, i) => {
+                                          return  <li><Lightning className="inline-block" size={16} key={feat + i}  />{feat}</li>
                                         })}
                                     </ul> 
                                   </div>
