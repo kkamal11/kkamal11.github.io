@@ -1,1 +1,0 @@
-import{u as c,r as l}from"./index-RLwhNeFw.js";function m(){const{pathname:r}=c();return l.useEffect(()=>{const s=window.scrollY,e=600;let t=null;function o(n){t||(t=n);const a=Math.min((n-t)/e,1),i=1-Math.pow(1-a,3);window.scrollTo(0,s*(1-i)),a<1&&requestAnimationFrame(o)}requestAnimationFrame(o)},[r]),null}export{m as default};
