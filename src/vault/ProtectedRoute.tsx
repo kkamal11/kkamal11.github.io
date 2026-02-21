@@ -3,7 +3,7 @@ import { useAuth } from "./AuthContext";
 import type { JSX } from "react";
 import PageLoader from "../components/layout/PageLoader";
 
-const ALLOWED_EMAIL = "kishorkamal7091@gmail.com";
+const ALLOWED_EMAIL: string[] = ["kishorkamal7091@gmail.com"];
 
 export default function ProtectedRoute({
   children,
@@ -14,7 +14,7 @@ export default function ProtectedRoute({
 
   if (loading) return <PageLoader />;
 
-  if (user?.email !== ALLOWED_EMAIL) {
+  if (!ALLOWED_EMAIL.includes(user?.email || "")) {
     return <Navigate to="/vault" />;
   }
 
