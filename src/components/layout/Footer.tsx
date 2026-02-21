@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { LinkedButton, GithubButton } from "./SocialButtons";
+import { LinkedButton, GithubButton } from "../SocialButtons";
 
 export default function Footer() {
   const links = [

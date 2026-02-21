@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
-import BookACallBtn from "./BookAcCallBtn";
+import BookACallBtn from "../BookAcCallBtn";
 
 export default function Navbar(){
   const [open, setOpen] = useState(false);

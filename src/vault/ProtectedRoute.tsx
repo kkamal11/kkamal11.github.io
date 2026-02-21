@@ -1,7 +1,7 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 import type { JSX } from "react";
-import PageLoader from "../components/PageLoader";
+import PageLoader from "../components/layout/PageLoader";
 
 const ALLOWED_EMAIL = "kishorkamal7091@gmail.com";
 

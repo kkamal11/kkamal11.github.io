@@ -1,15 +1,15 @@
 import { Suspense, lazy } from "react"
 import { Routes, Route, useLocation } from "react-router-dom"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/layout/Navbar"
 import RedirectHandler from "./utils/RedirectHandler"
-import PageLoader from "./components/PageLoader"
+import PageLoader from "./components/layout/PageLoader"
 
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const VisionComp = lazy(() => import("./components/Vision"));
-const Footer = lazy(() => import("./components/Footer"));
+const Footer = lazy(() => import("./components/layout/Footer"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
