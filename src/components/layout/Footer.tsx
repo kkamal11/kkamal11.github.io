@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { LinkedButton, GithubButton } from "../SocialButtons";
+import Reveal from "../Reveal";
 
 export default function Footer() {
   const links = [
@@ -23,42 +24,47 @@ export default function Footer() {
 
       <div className="relative max-w-7xl mx-auto px-10 py-8 flex flex-col sm:flex-row space-y-7 sm:space-y-0 items-center justify-between">
         {/* Left */}
-        <div>
-          <nav className="flex items-center gap-4 text-sm text-gray-300">
-            {links.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  isActive
-                    ? "px-4 py-1.5 rounded-md bg-white/10 text-white"
-                    : "hover:text-white transition"
-                }
-              >
-                {link.name}
-              </NavLink>
-            ))}
-          </nav>
+        <Reveal hiddenClass="opacity-0 -translate-x-16">
+            <div>
+              <nav className="flex items-center gap-4 text-sm text-gray-300">
+                {links.map((link) => (
+                  <NavLink
+                    key={link.to}
+                    to={link.to}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "px-4 py-1.5 rounded-md bg-white/10 text-white"
+                        : "hover:text-white transition"
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+                ))}
+              </nav>
 
-          <div className="pt-3 flex gap-3 justify-center sm:justify-start">
-            <LinkedButton />
-            <GithubButton />
-          </div>
-        </div>
-
+              <div className="pt-3 flex gap-3 justify-center sm:justify-start">
+                <LinkedButton />
+                <GithubButton />
+              </div>
+            </div>
+        </Reveal>
         {/* Right email */}
-        <div className="text-xl sm:text-3xl md:text-4xl font-light tracking-wide text-white">
-          dev.kamal.kishor@gmail.com
-        </div>
+        <Reveal hiddenClass="opacity-0 translate-x-16">
+          <div className="text-xl sm:text-3xl md:text-4xl font-light tracking-wide text-white">
+            dev.kamal.kishor@gmail.com
+          </div>
+        </Reveal>
       </div>
 
       {/* Bottom credit */}
-      <div className="relative text-center text-[10px] text-gray-400 pb-5 px-2">
-        Developed & designed by <a href="https://github.com/kkamal11" target="_blank" className="text-gray-200 font-medium">Kamal</a> using{" "}
-        <span className="text-blue-400">React</span>, {" "}
-        <span className="text-cyan-400">TypeScript</span> &{" "}
-        <span className="text-blue-300">Tailwind CSS</span>
-      </div>
+      <Reveal hiddenClass="opacity-0 translate-y-2 scale-95">
+        <div className="relative text-center text-[10px] text-gray-400 pb-5 px-2">
+            Developed & designed by <a href="https://github.com/kkamal11" target="_blank" className="text-gray-200 font-medium">Kamal</a> using{" "}
+            <span className="text-blue-400">React</span>, {" "}
+            <span className="text-cyan-400">TypeScript</span> &{" "}
+            <span className="text-blue-300">Tailwind CSS</span>
+        </div>
+      </Reveal>
     </footer>
   );
 }

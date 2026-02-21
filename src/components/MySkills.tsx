@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { skills as stack } from "../utils/Data"
+import Reveal from "./Reveal";
 
 export default function MySkills() {
   const DEFAULT_COUNT = 24;
@@ -12,14 +13,15 @@ export default function MySkills() {
       <h1 className="text-4xl font-[400px] tracking-tight text-gray-800 text-center mb-8">
         My Skill Highlights
       </h1>
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-16">
-        <div className="flex flex-wrap gap-3 justify-center">
-          {visibleSkills.map((item, i) => (
-            <SkillPill key={i} item={item} />
-          ))}
+      <Reveal hiddenClass="opacity-0 translate-y-12 scale-95">
+          <div className="max-w-6xl mx-auto px-4 sm:px-16">
+            <div className="flex flex-wrap gap-3 justify-center">
+              {visibleSkills.map((item, i) => (
+                <SkillPill key={i} item={item} />
+              ))}
+            </div>
         </div>
-      </div>
+      </Reveal>
       <div className="flex items-center justify-center mt-10">
         <button
           onClick={() => setExpanded(prev => !prev)}

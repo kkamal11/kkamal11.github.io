@@ -2,6 +2,7 @@ import { Laptop, GraduationCap, Briefcase, Sparkle, Medal } from "phosphor-react
 import focusImg from '../assets/focus.webp'
 import { certificates } from "../utils/Data";
 import { useState } from "react";
+import Reveal from "../components/Reveal";
 export default function About() {
   const [showAllCerts, setShowAllCerts] = useState(false);
   const toggleCertCount = () => {
@@ -99,6 +100,7 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 
           {/* Internships */}
+          <Reveal hiddenClass="opacity-0 -translate-x-16">
           <div>
             <div className="flex items-center gap-3 mb-6">
               <Briefcase size={20} className="text-gray-500" />
@@ -122,21 +124,24 @@ export default function About() {
                 desc="Contributed to applied academic projects by translating problem statements into structured technical solutions and well-documented implementations."
               />
             </Timeline>
-          </div>
+            </div>
+          </Reveal>
 
           {/* Core Focus */}
           <div className="p-10 flex items-center justify-center">
-            <img
-              src={focusImg}
-              alt="Core focus illustration"
-              className=" rounded-xl
-                w-56 md:w-72
-                opacity-80
-                grayscale
-                transition-all duration-500 ease-out
-                hover:opacity-100 hover:grayscale-0 hover:scale-105
-              "
-            />
+            <Reveal hiddenClass="opacity-0 translate-x-16">
+              <img
+                src={focusImg}
+                alt="Core focus illustration"
+                className=" rounded-xl
+                  w-56 md:w-72
+                  opacity-80
+                  grayscale
+                  transition-all duration-500 ease-out
+                  hover:opacity-100 hover:grayscale-0 hover:scale-105
+                "
+              />
+            </Reveal>
           </div>
         </div>
 
@@ -144,6 +149,7 @@ export default function About() {
         <div className="space-y-12">
 
           {/* Certificates */}
+          <Reveal hiddenClass="opacity-0 translate-x-16">
           <div>
               <div className="flex items-center gap-3 mb-6">
                 <Medal size={20} className="text-gray-500" />
@@ -158,7 +164,8 @@ export default function About() {
                   link={cert.verify_link} key={cert.id} />
               })}
             </div>
-          </div>
+            </div>
+          </Reveal>
           <div className="flex items-center justify-center mt-6">
             <button
             onClick={toggleCertCount}
@@ -167,9 +174,11 @@ export default function About() {
             {showAllCerts ? "Show Less" : "Show All"}
             </button>
         </div>
-
-          <p className="text-sm text-gray-500 text-center">
-              I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across Software Engineering, Machine Learning, and Artificial Intelligence.          </p>
+          <Reveal hiddenClass="opacity-0 translate-y-12 scale-95">
+            <p className="text-sm text-gray-500 text-center">
+              I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across Software Engineering, Machine Learning, and Artificial Intelligence.
+            </p>
+          </Reveal>
         </div>
 
       </div>

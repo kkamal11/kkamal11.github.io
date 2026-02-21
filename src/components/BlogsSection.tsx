@@ -1,6 +1,7 @@
 import { blogs } from "../utils/Data";
 import { type Blog } from "../utils/Data";
 import { NavLink } from "react-router-dom";
+import Reveal from "./Reveal";
 
 export default function BlogsSection() {
   return (
@@ -16,7 +17,9 @@ export default function BlogsSection() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {blogs.map((blog) => (
-            <BlogCard key={blog.id} blog={blog} />
+            <Reveal key={blog.id} hiddenClass="opacity-0 translate-y-12 scale-95">
+              <BlogCard blog={blog} />
+            </Reveal>
           ))}
         </div>
         <div className="flex items-center justify-center mt-6 sm:mt-12">
