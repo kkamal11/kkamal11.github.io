@@ -16,6 +16,8 @@ const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
 const VaultLogin = lazy(() => import("./components/VaultLogin"));
 const PrivateVault = lazy(() => import("./pages/PrivateVault"));
 const ProtectedRoute = lazy(() => import("./vault/ProtectedRoute"));
+const FloatingResumeButton = lazy(() => import("./components/FloatingResumeButton"));
+const ResumeViewer = lazy(() => import("./components/resume/ResumeViewer"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects']
@@ -47,12 +49,14 @@ function App() {
                 <ProtectedRoute>
                   <PrivateVault />
                 </ProtectedRoute>
-              }/>
+              } />
+            <Route path="/resume" element={<ResumeViewer />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
       </main>
       {!shouldBeHidden && <VisionComp />}
+      {location.pathname !== '/resume' && <FloatingResumeButton />}
       <Footer />
     </div>
   );
