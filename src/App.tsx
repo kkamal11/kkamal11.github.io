@@ -6,12 +6,16 @@ import VisionComp from "./components/Vision"
 import RedirectHandler from "./utils/RedirectHandler"
 import ScrollToTop from "./utils/ScrollToTop"
 import PageLoader from "./components/PageLoader"
+import ProtectedRoute from "./vault/ProtectedRoute";
+
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Blogs = lazy(() => import("./pages/Blogs"));
+const VaultLogin = lazy(() => import("./components/VaultLogin"));
+const PrivateVault = lazy(() => import("./pages/PrivateVault"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects']
@@ -36,6 +40,14 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blogs />} />
+            <Route path="/vault" element={<VaultLogin />} />
+            <Route
+              path="/private-vault"
+              element={
+                <ProtectedRoute>
+                  <PrivateVault />
+                </ProtectedRoute>
+              }/>
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>

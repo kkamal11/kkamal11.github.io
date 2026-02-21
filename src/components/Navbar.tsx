@@ -10,6 +10,7 @@ export default function Navbar(){
     { name: "Contact", to: "/contact" },
     { name: "Projects", to: "/projects" },
     { name: "Blog", to: "/blog" },
+    { name: "Vault", to: "/vault" },
   ];
 
   return (
