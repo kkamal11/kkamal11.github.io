@@ -51,6 +51,9 @@ export default function Navbar(){
                 </NavLink>
               </li>
             ))}
+            <NavLink to="/resume" onClick={() => setOpen(false)}>
+                Resume
+            </NavLink>
             <NavLink
               to="/contact"
               className="mt-4 border border-gray-800 px-4 py-2 rounded-full text-sm text-center hover:bg-black hover:text-white transition">
