@@ -54,9 +54,9 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>
-        {location.pathname !== '/resume' && <FloatingResumeButton />}
       </main>
       {!shouldBeHidden && <VisionComp />}
+      {location.pathname !== '/resume' && <FloatingResumeButton />}
       <Footer />
     </div>
   );
