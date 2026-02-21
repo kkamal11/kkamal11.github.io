@@ -16,8 +16,8 @@ export default function MySkills() {
       <Reveal hiddenClass="opacity-0 translate-y-12 scale-95">
           <div className="max-w-6xl mx-auto px-4 sm:px-16">
             <div className="flex flex-wrap gap-3 justify-center">
-              {visibleSkills.map((item, i) => (
-                <SkillPill key={i} item={item} />
+              {visibleSkills.map((item) => (
+                <SkillPill key={item.name} item={item} />
               ))}
             </div>
         </div>
