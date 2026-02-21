@@ -62,7 +62,7 @@ export default function LinksSection() {
         <p className="text-sm text-gray-500">No links yet.</p>
       ) : (
         <div className="space-y-2">
-          {links.map((l) => (
+          {links.map((l, i) => (
             <div
               key={l.id}
               className="flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg"
@@ -73,7 +73,7 @@ export default function LinksSection() {
                 rel="noreferrer"
                 className="text-sm text-blue-600 hover:underline truncate"
               >
-                {l.text}
+                {i+1}. {l.text}
               </a>
 
               <button
