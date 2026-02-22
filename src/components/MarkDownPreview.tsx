@@ -5,13 +5,13 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
 import { Projects } from "../utils/Data";
-import ComponentLoader from "./layout/ComponentLoader";
 
 const ReactMarkdown = lazy(() => import("react-markdown"));
 const Tag = lazy(() => import("./Tag")
     .then(module => (
         { default: module.Tag }
     )));
+const ComponentLoader = lazy(() => import("./layout/ComponentLoader"));
 
 
 export default function ProjectMarkdown() {
@@ -78,7 +78,10 @@ export default function ProjectMarkdown() {
                     </article>
                 </div>
                     : <ComponentLoader text={"Loading from Github..."} />}
-        </section>
+        <div className="flex items-center justify-center mt-4 sm:mt-6 text-gray-500">
+            <p className="text-xs">This markdown preview is generated from the project's README.md file on GitHub. Some formatting might not be rendered correctly.</p>
+        </div>  
+      </section>
     );
 }
 

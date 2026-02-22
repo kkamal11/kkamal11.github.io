@@ -125,6 +125,7 @@ export const Projects: Project[] = [
     imgPath: [apiImg],
     period: 'December 2025 - January 2026',
     type: "Backend API",
+    markdown:"https://raw.githubusercontent.com/kkamal11/FastAPI-Bookly-Application/refs/heads/main/README.md"
   },
   {
     id: 2,
@@ -159,7 +160,8 @@ export const Projects: Project[] = [
     tags: ["AI", "Education", "Full Stack", "REST Api"],
     imgPath: [apiImg],
     period: 'January 2025 - April 2025',
-    type:"Full Stack Web App & Backend API"
+    type: "Full Stack Web App & Backend API",
+    markdown:"https://raw.githubusercontent.com/kkamal11/soft-engg-project-ai-pow-academic-portal/refs/heads/main/README.md"
   },
 
   {
@@ -187,7 +189,8 @@ export const Projects: Project[] = [
     tags: ["Java", "Spring Boot","Cloud"],
     imgPath: [],
     period: 'November 2024 - December 2024',
-    type:"Full Stack Web App"
+    type: "Full Stack Web App",
+    markdown:"https://raw.githubusercontent.com/kkamal11/Smart-Contact-Manager-Web-App/refs/heads/main/README.md"
   },
   {
     id: 4,
@@ -220,7 +223,8 @@ export const Projects: Project[] = [
     tags: ["Machine Learning", "Data Science", "Kaggle"],
     imgPath: [MLP],
     period: 'January 2024 - April 2024',
-    type:"Machine Learning"
+    type: "Machine Learning",
+    markdown:"https://raw.githubusercontent.com/kkamal11/Recipe-for-Rating-Predict-Food-Ratings-using-ML/refs/heads/main/README.md"
   },
 
   {
@@ -241,7 +245,8 @@ export const Projects: Project[] = [
     tags: ["Data Analysis", "Visualization", "Bussiness Data Analytics"],
     imgPath: [ipl],
     period: 'August 2022 - September 2022',
-    type:"Data Analysis"
+    type: "Data Analysis",
+    markdown:"https://raw.githubusercontent.com/kkamal11/EDA_on_IPL/refs/heads/main/README.md"
   },
 
   {
@@ -275,7 +280,8 @@ export const Projects: Project[] = [
     tags: ["Full Stack", "Productivity"],
     imgPath: [qty_self_2],
     period: 'September 2021 - December 2021',
-    type:"Full Stack Web App"
+    type: "Full Stack Web App",
+    markdown:"https://raw.githubusercontent.com/kkamal11/Quantified_Self_App_v2.0/refs/heads/main/README.md"
   },
   {
     id: 7,
@@ -293,7 +299,8 @@ export const Projects: Project[] = [
     tags: ["Flask", "Beginner"],
     imgPath: [qty_self_1],
     period: 'May 2021 - August 2021',
-    type:"Full Stack Web App"
+    type: "Full Stack Web App",
+    markdown:"https://raw.githubusercontent.com/kkamal11/Quantified-Self-Application/refs/heads/main/README.md"
   }
 ];
 
