@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { skills as stack } from "../utils/Data";
 import Reveal from "./Reveal";
 
@@ -38,7 +38,7 @@ export default function MySkills() {
           ))}
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-16">
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center will-change-transform">
             {visibleSkills.map((item) => (
               <SkillPill
                 key={item.name}
@@ -69,32 +69,75 @@ function SkillPill({
   item: { name: string; icon: string; category: string };
   activeCategory: string;
 }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+
   const isActive =
     activeCategory === "All" || item.category === activeCategory;
 
+  const handleMove = (e: React.MouseEvent) => {
+    if (!ref.current) return;
+
+    const rect = ref.current.getBoundingClientRect();
+
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    ref.current.style.transform = `translate(${x * 0.09}px, ${
+      y * 0.09
+    }px)`;
+  };
+
+  const reset = () => {
+    if (!ref.current) return;
+    ref.current.style.transform = "translate(0px, 0px)";
+  };
+
   return (
+
     <div
+      ref={ref}
+      onMouseMove={handleMove}
+      onMouseLeave={reset}
       className={`
         group flex items-center gap-2
         px-4 py-2 rounded-2xl
-        bg-white border border-gray-200
+        bg-white border
         text-xs uppercase tracking-wide
-        transition-all duration-200 cursor-default
-        hover:-translate-y-[2px] hover:shadow-sm
+        cursor-default
+
+        transition-all duration-500 ease-out
 
         ${
           isActive
-            ? "text-gray-700 opacity-100 hover:border-gray-400"
-            : "text-gray-400 opacity-30"
+            ? `
+              text-gray-700
+              border-gray-300
+              opacity-100
+              scale-100
+              shadow-[0_2px_10px_rgba(0,0,0,0.06)]
+            `
+            : `
+              text-gray-400
+              border-gray-200
+              opacity-35
+              scale-[0.97]
+            `
         }
+
+        hover:shadow-md
       `}
     >
       <img
         src={item.icon}
         alt={item.name}
-        className="w-4 h-4 object-contain opacity-70 group-hover:opacity-100"
+        className={`w-4 h-4 object-contain transition-all duration-500 ${
+          isActive ? "opacity-90" : "opacity-40"
+        }`}
       />
+
       <span>{item.name}</span>
-    </div>
+      </div>
   );
 }
+
+
