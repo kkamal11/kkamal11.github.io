@@ -15,7 +15,7 @@ export default function FloatingResumeButton() {
   return (
     <Link
       to="/resume"
-      className={`hidden md:flex fixed right-5 bottom-1 -translate-y-1/2 z-50
+      className={`flex fixed right-5 bottom-1 -translate-y-1/2 z-50
       px-3 py-2 bg-black text-white rounded shadow-lg
       hover:bg-gray-900 transition-all duration-500
       ${
