@@ -1,11 +1,14 @@
-import { useEffect, useState, lazy } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import remarkGfm from "remark-gfm";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
 import { Projects } from "../utils/Data";
 
+const SyntaxHighlighter = lazy(() =>
+  import("react-syntax-highlighter").then((m) => ({
+    default: m.Prism,
+  }))
+);
 const ReactMarkdown = lazy(() => import("react-markdown"));
 const Tag = lazy(() => import("./Tag")
     .then(module => (
@@ -91,19 +94,44 @@ const components = {
 
     const match = /language-(\w+)/.exec(className || "");
 
-    return !inline && match ? (
-      <SyntaxHighlighter
-        style={oneLight}
-        language={match[1]}
-        PreTag="div"
-      >
-        {String(children).replace(/\n$/, "")}
-      </SyntaxHighlighter>
-    ) : (
+    if (!inline && match) {
+      return (
+        <Suspense fallback={<pre>{children}</pre>}>
+          <LazyCodeBlock
+            language={match[1]}
+            code={String(children).replace(/\n$/, "")}
+          />
+        </Suspense>
+      );
+    }
+    return (
       <code className={className} {...rest}>
         {children}
       </code>
     );
   },
 };
+
+function LazyCodeBlock({
+      language,
+      code,
+    }: {
+      language: string;
+      code: string;
+    }) {
+      const [Style, setStyle] = useState<any>(null);
+      useEffect(() => {
+        import("react-syntax-highlighter/dist/esm/styles/prism").then((m) => {
+          setStyle(() => m.oneLight);
+        });
+      }, []);
+      if (!Style) return <pre>{code}</pre>;
+      return (
+        <SyntaxHighlighter style={Style} language={language} PreTag="div">
+          {code}
+        </SyntaxHighlighter>
+      );
+}
+
+
 
