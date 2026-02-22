@@ -54,6 +54,13 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                         <p className="text-[10px] text-gray-500 mt-1"> {proj.period}</p>
                         <p className="text-xs text-gray-500 mt-1"> {proj.btm_text}</p>
                   </div>
+                  <NavLink
+  to={`/projects/${proj.id}`}
+  className="text-sm underline text-gray-700 hover:text-black"
+>
+  Read Full Case Study →
+</NavLink>
+
 
                   <p className="text-sm font-medium text-gray-600 text-center">{proj.type}</p>
 

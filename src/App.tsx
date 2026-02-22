@@ -18,9 +18,10 @@ const PrivateVault = lazy(() => import("./pages/PrivateVault"));
 const ProtectedRoute = lazy(() => import("./vault/ProtectedRoute"));
 const FloatingResumeButton = lazy(() => import("./components/FloatingResumeButton"));
 const ResumeViewer = lazy(() => import("./components/resume/ResumeViewer"));
+const ProjectMarkdown = lazy(() => import("./components/MarkDownPreview"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects']
+const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects','/vault', '/resume'];
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
                 </ProtectedRoute>
               } />
             <Route path="/resume" element={<ResumeViewer />} />
+            <Route path="/projects/:id" element={<ProjectMarkdown />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Suspense>

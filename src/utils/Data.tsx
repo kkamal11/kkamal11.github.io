@@ -40,7 +40,8 @@ type Project = {
     features: string[],
     imgPath?: string[],
     period: string,
-    type:ProjectType
+    type: ProjectType,
+    markdown?: string
 }
 
 type Certificate = {
@@ -92,6 +93,7 @@ export const Projects: Project[] = [
     imgPath: [],
     period: "January 2026 - February 2026",
     type: "HTTP Server",
+    markdown:"https://raw.githubusercontent.com/kkamal11/custom-python-http-server/refs/heads/main/README.md"
   },
   {
     id: 1,
