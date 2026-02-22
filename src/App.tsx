@@ -14,11 +14,11 @@ const Projects = lazy(() => import("./pages/Projects"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
 const VaultShell = lazy(() => import("./vault/VaultShell"));
-const FloatingResumeButton = lazy(() => import("./components/FloatingResumeButton"));
+const FloatingResumeButton = lazy(() => import("./components/resume/FloatingResumeButton"));
 const ResumeViewer = lazy(() => import("./components/resume/ResumeViewer"));
 const ProjectMarkdown = lazy(() => import("./components/MarkDownPreview"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
-
+const SmartAssistant = lazy(() => import("./components/bot/SmartAssistant"));
 const SHOW_VISON_COMP_ROUTES: string[] = ['/','/contact','/about','/blog','/projects', '/resume'];
 const HIDE_VISION_COMP_ROUTES: string[] = ['/contact', '/blog','/Vault'];
 
@@ -55,6 +55,7 @@ function App() {
         </Suspense>
       </main>
       {!shouldBeHidden && <VisionComp />}
+      <SmartAssistant />
       {location.pathname !== '/resume' && <FloatingResumeButton />}
       <Footer />
     </div>
