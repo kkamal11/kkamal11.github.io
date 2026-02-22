@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import remarkGfm from "remark-gfm";
+import type { Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
@@ -64,21 +65,7 @@ export default function ProjectMarkdown() {
                 <article className="markdown-body">
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
-                        components={{
-                            code({ inline, className, children }) {
-                                const match = /language-(\w+)/.exec(className || "");
-                                return !inline && match ? (
-                                    <SyntaxHighlighter
-                                        style={oneLight}
-                                        language={match[1]}
-                                        PreTag="div"
-                                    >{String(children).replace(/\n$/, "")}
-                                    </SyntaxHighlighter>
-                                ) : (
-                                    <code>{children}</code>
-                                );
-                            },
-                        }}>
+                        components={components}>
                         {content}
                     </ReactMarkdown>
                 </article>
@@ -88,3 +75,23 @@ export default function ProjectMarkdown() {
 );
 
 }
+
+const components: Components = {
+  code({ inline, className, children, ...props }) {
+    const match = /language-(\w+)/.exec(className || "");
+
+    return !inline && match ? (
+      <SyntaxHighlighter
+        style={oneLight}
+        language={match[1]}
+        PreTag="div"
+      >
+        {String(children).replace(/\n$/, "")}
+      </SyntaxHighlighter>
+    ) : (
+      <code className={className} {...props}>
+        {children}
+      </code>
+    );
+  },
+};
