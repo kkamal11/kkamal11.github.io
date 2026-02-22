@@ -21,7 +21,7 @@ const ResumeViewer = lazy(() => import("./components/resume/ResumeViewer"));
 const ProjectMarkdown = lazy(() => import("./components/MarkDownPreview"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects','/vault', '/resume'];
+const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects', '/resume'];
 
 function App() {
 
