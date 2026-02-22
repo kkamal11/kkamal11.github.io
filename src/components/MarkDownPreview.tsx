@@ -1,136 +1,109 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
+
+import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+
 import "github-markdown-css/github-markdown-light.css";
 import { Projects } from "../utils/Data";
 
-const SyntaxHighlighter = lazy(() =>
-  import("react-syntax-highlighter").then((m) => ({
-    default: m.Prism,
+const Tag = lazy(() =>
+  import("./Tag").then((module) => ({
+    default: module.Tag,
   }))
 );
-const ReactMarkdown = lazy(() => import("react-markdown"));
-const Tag = lazy(() => import("./Tag")
-    .then(module => (
-        { default: module.Tag }
-    )));
 const ComponentLoader = lazy(() => import("./layout/ComponentLoader"));
-
 
 export default function ProjectMarkdown() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [content, setContent] = useState("");
   const project = Projects.find((p) => p.id === Number(id));
-    
 
   useEffect(() => {
     if (!project?.markdown) {
-        navigate(-1);
-        return;
-    };
+      navigate(-1);
+      return;
+    }
+
     fetch(project.markdown)
       .then((res) => res.text())
-      .then((text) => {
-        setContent(text);
-      }).catch(() => {
+      .then((text) => setContent(text))
+      .catch(() => {
         setContent("Error loading markdown content.");
-      })
+      });
   }, [project, navigate]);
 
-    if (!project || !project.markdown) {
-        return <Navigate to="/projects" replace={true} />;
-    }
-    return (
-        <section className="max-w-5xl mx-auto px-4 py-10">
-            <div className="mb-6 flex gap-4 items-center justify-between">
-                <button
-                onClick={() => navigate(-1)}
-                className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
-                >
-                ← Back
-                </button>
-                <a
-                    href={project.githubUrl} target="_blank"
-                    className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
-                    >
-                    Source Code on Github &#x2197;
-                </a>
-            </div>
-            <div className="mb-8">
-            <h1 className="text-3xl font-semibold text-gray-800">
-                {project.title}
-            </h1>
+  if (!project || !project.markdown) {
+    return <Navigate to="/projects" replace />;
+  }
 
-            <p className="text-xs text-gray-500 mt-2">
-                {project.type} • {project.period}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-3">
-                {project.techUsed?.map((tech) => (
-                <Tag key={tech} slotValue={tech} />
-                ))}
-            </div>
-            </div>
-                {content ? <div className="bg-white rounded-lg p-6">
-                    <article className="markdown-body">
-                        <ReactMarkdown
-                            remarkPlugins={[remarkGfm]}
-                            components={components}>
-                            {content}
-                        </ReactMarkdown>
-                    </article>
-                </div>
-                    : <ComponentLoader text={"Loading from Github..."} />}
-        {content && <div className="flex items-center justify-center mt-4 sm:mt-6 text-gray-500">
-          <p className="text-xs">This markdown preview is generated from the project's README.md file on GitHub. Some formatting might not be rendered correctly.</p>
-        </div>}
-      </section>
-    );
-}
+  return (
+    <section className="max-w-5xl mx-auto px-4 py-10">
+      <div className="mb-6 flex gap-4 items-center justify-between">
+        <button
+          onClick={() => navigate(-1)}
+          className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white transition"
+        >
+          ← Back
+        </button>
 
-const components = {
-  code(props: any) {
-    const { inline, className, children, ...rest } = props;
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white transition"
+        >
+          Source Code on Github ↗
+        </a>
+      </div>
 
-    const match = /language-(\w+)/.exec(className || "");
+      <div className="mb-8">
+        <h1 className="text-3xl font-semibold text-gray-800">
+          {project.title}
+        </h1>
 
-    if (!inline && match) {
-      return (
-        <Suspense fallback={<pre>{children}</pre>}>
-          <LazyCodeBlock
-            language={match[1]}
-            code={String(children).replace(/\n$/, "")}
-          />
+        <p className="text-xs text-gray-500 mt-2">
+          {project.type} • {project.period}
+        </p>
+
+        <div className="flex flex-wrap gap-2 mt-3">
+          <Suspense fallback={null}>
+            {project.techUsed?.map((tech) => (
+              <Tag key={tech} slotValue={tech} />
+            ))}
+          </Suspense>
+        </div>
+      </div>
+
+      {content ? (
+        <div className="bg-white rounded-lg p-6">
+          <article className="markdown-body max-w-none">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeHighlight]}
+            >
+              {content}
+            </ReactMarkdown>
+          </article>
+        </div>
+      ) : (
+        <Suspense fallback={null}>
+          <ComponentLoader text="Loading from Github..." />
         </Suspense>
-      );
-    }
-    return (
-      <code className={className} {...rest}>
-        {children}
-      </code>
-    );
-  },
-};
+      )}
 
-function LazyCodeBlock({
-      language,
-      code,
-    }: {
-      language: string;
-      code: string;
-    }) {
-      const [Style, setStyle] = useState<any>(null);
-      useEffect(() => {
-        import("react-syntax-highlighter/dist/esm/styles/prism").then((m) => {
-          setStyle(() => m.oneLight);
-        });
-      }, []);
-      if (!Style) return <pre>{code}</pre>;
-      return (
-        <SyntaxHighlighter style={Style} language={language} PreTag="div">
-          {code}
-        </SyntaxHighlighter>
-      );
+      {content && (
+        <div className="flex items-center justify-center mt-4 sm:mt-6 text-gray-500">
+          <p className="text-xs text-center">
+            This markdown preview is generated from the project's README.md
+            file on GitHub. Some formatting might not be rendered correctly.
+          </p>
+        </div>
+      )}
+    </section>
+  );
 }
 
 
