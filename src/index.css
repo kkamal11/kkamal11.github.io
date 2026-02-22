@@ -1,6 +1,9 @@
 @import "tailwindcss";
 @import "highlight.js/styles/github.css";
 
+/* *{
+  outline: 1px solid red;
+} */
 
 @keyframes fadeUp {
   0% {
