@@ -1,7 +1,6 @@
 import { useEffect, useState, lazy } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import remarkGfm from "remark-gfm";
-import type { Components } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
