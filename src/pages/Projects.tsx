@@ -1,18 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { GithubGrayButton, GithubGrayButtonRound } from "../components/SocialButtons";
 import { Lightning } from "phosphor-react";
 import ImageCard from '../components/PimageCard';
-import { Projects } from "../utils/Data";
 import { Tag } from "../components/Tag";
 
 type ProjectsSectionProps = {
   showAll?: boolean;
 };
 
+type Project = {
+    id:number,
+    title: string,
+    btm_text: string,
+    ext_buttons?: {href:string, label:string, img:string}[],
+    description: string;
+    tags: string[];
+    githubUrl: string;
+    techUsed: string[],
+    features: string[],
+    imgPath?: string[],
+    period: string,
+    type: string,
+    markdown?: string
+}
+
+const loadProjects = async () => {
+  const module = await import("../utils/Data");
+  return module.Projects;
+};
+
 export default function ProjectsSection({ showAll = true }: ProjectsSectionProps) {
   const [openId, setOpenId] = useState<number | null>(null);
-  const visibleProjects = showAll ? Projects : Projects.slice(0, 3);
+  const [projects, setProjects] = useState<Project[]>([]);
+
+  useEffect(() => {
+    loadProjects().then(setProjects);
+  }, []);
+
+  const visibleProjects = showAll ? projects : projects.slice(0, 3);
+
   return (
     <section className="bg-white py-10 px-12">
       <div className="max-w-7xl mx-auto">
