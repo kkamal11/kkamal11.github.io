@@ -40,52 +40,51 @@ export default function ProjectMarkdown() {
         return <Navigate to="/projects" replace={true} />;
     }
     return (
-    <section className="max-w-5xl mx-auto px-4 py-10">
-        <div className="mb-6 flex gap-4 items-center justify-between">
-            <button
-            onClick={() => navigate(-1)}
-            className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
-            >
-            ← Back
-            </button>
-            <a
-                href={project.githubUrl} target="_blank"
+        <section className="max-w-5xl mx-auto px-4 py-10">
+            <div className="mb-6 flex gap-4 items-center justify-between">
+                <button
+                onClick={() => navigate(-1)}
                 className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
                 >
-                Source Code on Github &#x2197;
-            </a>
-        </div>
-        <div className="mb-8">
-        <h1 className="text-3xl font-semibold text-gray-800">
-            {project.title}
-        </h1>
-
-        <p className="text-xs text-gray-500 mt-2">
-            {project.type} • {project.period}
-        </p>
-        <div className="flex flex-wrap gap-2 mt-3">
-            {project.techUsed?.map((tech) => (
-            <Tag key={tech} slotValue={tech} />
-            ))}
-        </div>
-        </div>
-            {content ? <div className="bg-white rounded-lg p-6">
-                <article className="markdown-body">
-                    <ReactMarkdown
-                        remarkPlugins={[remarkGfm]}
-                        components={components}>
-                        {content}
-                    </ReactMarkdown>
-                </article>
+                ← Back
+                </button>
+                <a
+                    href={project.githubUrl} target="_blank"
+                    className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
+                    >
+                    Source Code on Github &#x2197;
+                </a>
             </div>
-                : <ComponentLoader text={"Loading from Github..."} />}
-    </section>
-);
+            <div className="mb-8">
+            <h1 className="text-3xl font-semibold text-gray-800">
+                {project.title}
+            </h1>
 
+            <p className="text-xs text-gray-500 mt-2">
+                {project.type} • {project.period}
+            </p>
+            <div className="flex flex-wrap gap-2 mt-3">
+                {project.techUsed?.map((tech) => (
+                <Tag key={tech} slotValue={tech} />
+                ))}
+            </div>
+            </div>
+                {content ? <div className="bg-white rounded-lg p-6">
+                    <article className="markdown-body">
+                        <ReactMarkdown
+                            remarkPlugins={[remarkGfm]}
+                            components={components}>
+                            {content}
+                        </ReactMarkdown>
+                    </article>
+                </div>
+                    : <ComponentLoader text={"Loading from Github..."} />}
+        </section>
+    );
 }
 
 const components = {
-  code(props: { inline: boolean; className?: string; children: React.ReactNode }) {
+  code(props: any) {
     const { inline, className, children, ...rest } = props;
 
     const match = /language-(\w+)/.exec(className || "");
