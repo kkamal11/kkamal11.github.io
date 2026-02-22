@@ -18,7 +18,7 @@ export const ASSISTANT_OPTIONS: AssistantOptionType[] = [
   },
   {
     id: "Projects",
-    label: "🚀 See My Projects",
+    label: "🚀 See Projects",
     response: "Feel free to explore my projects section to see what I've been working on!",
   },
   {
@@ -26,4 +26,19 @@ export const ASSISTANT_OPTIONS: AssistantOptionType[] = [
     label: "💬 Contact Me",
     response: "You can reach me via LinkedIn or the contact page 🙂",
   },
+    {
+    id: "about",
+    label: "👨‍💻 About Me",
+    response: "I'm a passionate developer with experience in building web applications using modern technologies. I use Python, Java and JavaScript technologies to create efficient and scalable solutions. I enjoy learning new technologies and am always looking for opportunities to grow and collaborate on exciting projects. Feel free to explore my portfolio to see some of my work and get in touch if you'd like to connect!",
+  },
+  {
+    id: "blog",
+    label: "📚 Read Blogs",
+    response: "I share my thoughts and insights on web development, programming languages, and industry trends in my blog section. That part is still in development though!",
+  },
+  {
+    id: "vault",
+    label: "🔒 Vault",
+    response: "That's my secret vault! You shouldn't be there 😅. I just made it to keep notes, files and other information so that I can access them easily.",
+  }
 ];

@@ -10,7 +10,7 @@ export default function AssistantOption({ option, onSelect }: Props) {
     <button
       onClick={() => onSelect(option.response)}
       className="
-        bg-gray-100 rounded-lg px-3 py-2 text-sm text-left
+        bg-gray-100 rounded-lg px-3 py-1.5 text-xs whitespace-nowrap text-left
         hover:bg-gray-200 transition hover:cursor-pointer
       "
     >
