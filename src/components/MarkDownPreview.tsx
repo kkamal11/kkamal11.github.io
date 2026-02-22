@@ -5,10 +5,12 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
 import { Projects } from "../utils/Data";
-import { Tag } from "./Tag";
 
 const ReactMarkdown = lazy(() => import("react-markdown"));
-
+const Tag = lazy(() => import("./Tag")
+    .then(module => (
+        { default: module.Tag }
+    )));
 export default function ProjectMarkdown() {
   const { id } = useParams();
   const navigate = useNavigate();
