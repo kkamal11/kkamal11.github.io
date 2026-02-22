@@ -78,6 +78,9 @@ export default function ProjectMarkdown() {
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeHighlight]}
+              components={{
+                pre:CodeBlockWithCopy
+              }}
             >
               {content}
             </ReactMarkdown>
@@ -100,5 +103,34 @@ export default function ProjectMarkdown() {
   );
 }
 
+function CodeBlockWithCopy(props: any) {
+  const [copied, setCopied] = useState(false);
+  const code = props.children?.props?.children?.toString() || "";
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(code);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
+
+  return (
+    <div className="relative group">
+      <button
+        onClick={handleCopy}
+        className="
+          absolute top-2 right-2
+          text-xs px-2 py-1 rounded
+          text-gray-700
+          bg-gray-50 border border-gray-300
+          opacity-0 group-hover:opacity-100
+          transition
+          hover:bg-gray-100 hover:cursor-pointer
+        "
+      >
+        {copied ? "Copied ✓" : "Copy"}
+      </button>
+      <pre {...props} />
+    </div>
+  );
+}
 
 
