@@ -59,7 +59,7 @@ export default function AssistantPanel({ onClose }: Props) {
       <div className="flex justify-between items-center mb-3">
         <p className="text-sm font-semibold">Your Assistant 🤖</p>
         <div className="flex space-x-4">
-          {messages.length > 0 && <button onClick={handleClearChat} className="hover:cursor-pointer hover:text-red-700">↻</button>}
+          {messages.length > 0 && <button onClick={handleClearChat} className="hover:cursor-pointer hover:text-blue-700">↻</button>}
           <button onClick={onClose} className="hover:cursor-pointer hover:text-red-700">✕</button>
         </div>
       </div>

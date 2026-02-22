@@ -44,7 +44,7 @@ export default function ProjectMarkdown() {
       <div className="mb-6 flex gap-4 items-center justify-between">
         <button
           onClick={() => navigate(-1)}
-          className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white transition"
+          className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white hover:cursor-pointer transition"
         >
           ← Back
         </button>
