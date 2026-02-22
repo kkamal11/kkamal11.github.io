@@ -13,9 +13,7 @@ const Footer = lazy(() => import("./components/layout/Footer"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Blogs = lazy(() => import("./pages/Blogs"));
 const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
-const VaultLogin = lazy(() => import("./components/VaultLogin"));
-const PrivateVault = lazy(() => import("./pages/PrivateVault"));
-const ProtectedRoute = lazy(() => import("./vault/ProtectedRoute"));
+const VaultShell = lazy(() => import("./vault/VaultShell"));
 const FloatingResumeButton = lazy(() => import("./components/FloatingResumeButton"));
 const ResumeViewer = lazy(() => import("./components/resume/ResumeViewer"));
 const ProjectMarkdown = lazy(() => import("./components/MarkDownPreview"));
@@ -43,14 +41,13 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blogs />} />
-            <Route path="/vault" element={<VaultLogin />} />
-            <Route
-              path="/private-vault"
-              element={
-                <ProtectedRoute>
-                  <PrivateVault />
-                </ProtectedRoute>
-              } />
+            <Route path="/vault/*"
+                element={
+                  <Suspense fallback={<PageLoader />}>
+                    <VaultShell />
+                  </Suspense>
+                }
+            />
             <Route path="/resume" element={<ResumeViewer />} />
             <Route path="/projects/:id" element={<ProjectMarkdown />} />
             <Route path="*" element={<NotFoundPage />} />

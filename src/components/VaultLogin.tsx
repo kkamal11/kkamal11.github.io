@@ -29,7 +29,7 @@ export default function VaultLogin() {
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
       if (user?.email === ALLOWED_EMAIL) {
-        navigate("/private-vault");
+        navigate("/vault/private-vault");
       }
     });
 
@@ -65,7 +65,7 @@ export default function VaultLogin() {
         return;
       }
 
-      navigate("/private-vault");
+      navigate("/vault/private-vault");
     } catch (error: any) {
         if (error.code === "auth/popup-closed-by-user") {
             return;
