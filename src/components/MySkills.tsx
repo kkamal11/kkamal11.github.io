@@ -93,7 +93,6 @@ function SkillPill({
   };
 
   return (
-
     <div
       ref={ref}
       onMouseMove={handleMove}
@@ -104,9 +103,7 @@ function SkillPill({
         bg-white border
         text-xs uppercase tracking-wide
         cursor-default
-
         transition-all duration-500 ease-out
-
         ${
           isActive
             ? `
@@ -123,7 +120,6 @@ function SkillPill({
               scale-[0.97]
             `
         }
-
         hover:shadow-md
       `}
     >
@@ -134,7 +130,6 @@ function SkillPill({
           isActive ? "opacity-90" : "opacity-40"
         }`}
       />
-
       <span>{item.name}</span>
       </div>
   );
