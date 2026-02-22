@@ -12,24 +12,24 @@ export const INTRO_MESSAGES: Record<string, string> = {
 
 export const ASSISTANT_OPTIONS: AssistantOptionType[] = [
   {
+    id: "about",
+    label: "👨‍💻 About Me",
+    response: "I'm a passionate developer with experience in building web applications using modern technologies. I use Python, Java and JavaScript technologies to create efficient and scalable solutions. I enjoy learning new technologies and am always looking for opportunities to grow and collaborate on exciting projects. Feel free to explore my portfolio to see some of my work and get in touch if you'd like to connect!",
+  },
+  {
     id: "resume",
     label: "📄 View Resume",
-    response: "You can access my resume using the floating resume button.",
+    response: "You can access my resume using the floating resume button just below the assistant.",
   },
   {
     id: "Projects",
     label: "🚀 See Projects",
-    response: "Feel free to explore my projects section to see what I've been working on!",
+    response: "Feel free to explore my projects section to see what I've been working on. Recently, I made a custom wsgi-compatible web server using Python and have been working with JavaScript and React to create interactive we apps",
   },
   {
     id: "contact",
     label: "💬 Contact Me",
     response: "You can reach me via LinkedIn or the contact page 🙂",
-  },
-    {
-    id: "about",
-    label: "👨‍💻 About Me",
-    response: "I'm a passionate developer with experience in building web applications using modern technologies. I use Python, Java and JavaScript technologies to create efficient and scalable solutions. I enjoy learning new technologies and am always looking for opportunities to grow and collaborate on exciting projects. Feel free to explore my portfolio to see some of my work and get in touch if you'd like to connect!",
   },
   {
     id: "blog",
@@ -39,6 +39,11 @@ export const ASSISTANT_OPTIONS: AssistantOptionType[] = [
   {
     id: "vault",
     label: "🔒 Vault",
-    response: "That's my secret vault! You shouldn't be there 😅. I just made it to keep notes, files and other information so that I can access them easily.",
+    response: "That's my secret vault! You shouldn't be there 😅. I just made it to keep notes, files and other information so that I can access them easily anywhere.",
+  },
+  {
+    id: "python",
+    label: "🐍 Python",
+    response: "I am a Pyhonist! I have experience in using Python for web development, data analysis, and automation. I enjoy working with frameworks like Python Frameworks to create efficient and scalable web applications. I also use Python for data analysis and visualization, leveraging libraries like Pandas and Matplotlib to gain insights from data. Additionally, I utilize Python for automating repetitive tasks and improving productivity. Python is a so versatile that I find both powerful and enjoyable to work with.",
   }
 ];
