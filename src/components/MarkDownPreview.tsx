@@ -5,6 +5,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import "github-markdown-css/github-markdown-light.css";
 import { Projects } from "../utils/Data";
+import ComponentLoader from "./layout/ComponentLoader";
 
 const ReactMarkdown = lazy(() => import("react-markdown"));
 const Tag = lazy(() => import("./Tag")
@@ -59,7 +60,7 @@ export default function ProjectMarkdown() {
             ))}
         </div>
         </div>
-        <div className="bg-white rounded-lg p-6">
+            {content ? <div className="bg-white rounded-lg p-6">
                 <article className="markdown-body">
                     <ReactMarkdown
                         remarkPlugins={[remarkGfm]}
@@ -82,6 +83,7 @@ export default function ProjectMarkdown() {
                     </ReactMarkdown>
                 </article>
             </div>
+                : <ComponentLoader text={"Loading from Github..."} />}
     </section>
 );
 
