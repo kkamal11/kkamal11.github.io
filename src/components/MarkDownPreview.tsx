@@ -78,9 +78,9 @@ export default function ProjectMarkdown() {
                     </article>
                 </div>
                     : <ComponentLoader text={"Loading from Github..."} />}
-        <div className="flex items-center justify-center mt-4 sm:mt-6 text-gray-500">
-            <p className="text-xs">This markdown preview is generated from the project's README.md file on GitHub. Some formatting might not be rendered correctly.</p>
-        </div>  
+        {content && <div className="flex items-center justify-center mt-4 sm:mt-6 text-gray-500">
+          <p className="text-xs">This markdown preview is generated from the project's README.md file on GitHub. Some formatting might not be rendered correctly.</p>
+        </div>}
       </section>
     );
 }
