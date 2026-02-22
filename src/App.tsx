@@ -19,14 +19,14 @@ const ResumeViewer = lazy(() => import("./components/resume/ResumeViewer"));
 const ProjectMarkdown = lazy(() => import("./components/MarkDownPreview"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
-const KNOWN_ROUTES: string[] = ['/','/contact','/about','/blog','/projects', '/resume'];
+const SHOW_VISON_COMP_ROUTES: string[] = ['/','/contact','/about','/blog','/projects', '/resume'];
+const HIDE_VISION_COMP_ROUTES: string[] = ['/contact', '/blog','/Vault'];
 
 function App() {
 
   const location = useLocation();
-  const hideOnRoutes: string[] = ['/contact', '/blog'];
-  const isRouteHidden: boolean = hideOnRoutes.includes(location.pathname);
-  const isRouteNotFound: boolean = !KNOWN_ROUTES.includes(location.pathname);
+  const isRouteHidden: boolean = HIDE_VISION_COMP_ROUTES.includes(location.pathname);
+  const isRouteNotFound: boolean = !SHOW_VISON_COMP_ROUTES.includes(location.pathname);
   const shouldBeHidden = isRouteHidden || isRouteNotFound;
   return (
     <div className="min-h-screen bg-[#F8F8F8] flex flex-col">
