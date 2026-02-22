@@ -13,7 +13,7 @@ export default function AssistantBubble({
     <div
       onClick={onClick}
       className={`
-        fixed bottom-20 right-10
+        fixed bottom-20 right-12
         bg-white shadow-xl rounded-full cursor-pointer
         transition-all duration-500 ease-in-out
         flex items-center overflow-hidden z-50

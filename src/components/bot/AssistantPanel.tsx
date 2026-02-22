@@ -53,7 +53,7 @@ export default function AssistantPanel({ onClose }: Props) {
       className="
         fixed bottom-36 right-10
         w-72 bg-white rounded-lg shadow-2xl
-        p-4 z-50 animate-fade-in
+        py-4 px-3 z-50 animate-fade-in
       "
     >
       <div className="flex justify-between items-center mb-3">
@@ -82,7 +82,7 @@ export default function AssistantPanel({ onClose }: Props) {
             <p className="text-center text-gray-400 text-xs mt-2">Chat has been cleared. Select an option below to start again!</p>
           )}
       </div>
-      <p className="text-[10px] text-gray-400 mb-1">Quick actions</p>
+      <p className="text-[10px] text-gray-400 mb-1 text-center">Quick actions</p>
       <div className="flex gap-2 overflow-x-auto no-scrollbar pb-1">
         {ASSISTANT_OPTIONS.map((option) => (
           <AssistantOption
