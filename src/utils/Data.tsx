@@ -25,7 +25,8 @@ type ProjectType =
     | "Backend API"
     | "Machine Learning"
     | "Data Analysis"
-    | "Full Stack Web App & Backend API";
+    | "Full Stack Web App & Backend API"
+    | "HTTP Server";
 
 type Project = {
     id:number,
@@ -61,6 +62,37 @@ export type Blog = {
 };
 
 export const Projects: Project[] = [
+    {
+    id: -1,
+    title: "Custom Python WSGI HTTP Server",
+    btm_text: "Built a HTTP server from scratch with prefork workers, async handling, and monitoring using Python",
+    description:
+      "A custom HTTP server built from scratch in Python that can serve WSGI applications like Flask and Django. The project demonstrates low-level networking, process management, async non-blocking I/O, graceful shutdown and cli monitoring features.",
+    githubUrl: "https://github.com/kkamal11/custom-python-http-server",
+    techUsed: [
+      "Python",
+      "Sockets",
+      "WSGI",
+      "Flask",
+      "Django",
+      "Multiprocessing",
+      "Async I/O",
+      "Linux",
+    ],
+    features: [
+      "Built raw TCP HTTP server using Python sockets",
+      "WSGI compatibility to serve Flask and Django apps",
+      "Prefork worker model similar to Gunicorn",
+      "Graceful shutdown using Unix signals",
+      "Async non-blocking worker using selectors",
+      "Access logging and structured CLI output",
+      "Process-safe architecture with worker lifecycle management",
+    ],
+    tags: ["Backend", "Python", "Server", "Infrastructure"],
+    imgPath: [],
+    period: "January 2026 - February 2026",
+    type: "HTTP Server",
+  },
   {
     id: 1,
     title: "Bookly - FastAPI Beyond CRUD",
