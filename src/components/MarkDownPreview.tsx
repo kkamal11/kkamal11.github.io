@@ -84,8 +84,10 @@ export default function ProjectMarkdown() {
 
 }
 
-const components: Components = {
-  code({ inline, className, children, ...props }) {
+const components = {
+  code(props: { inline: boolean; className?: string; children: React.ReactNode }) {
+    const { inline, className, children, ...rest } = props;
+
     const match = /language-(\w+)/.exec(className || "");
 
     return !inline && match ? (
@@ -97,9 +99,10 @@ const components: Components = {
         {String(children).replace(/\n$/, "")}
       </SyntaxHighlighter>
     ) : (
-      <code className={className} {...props}>
+      <code className={className} {...rest}>
         {children}
       </code>
     );
   },
 };
+
