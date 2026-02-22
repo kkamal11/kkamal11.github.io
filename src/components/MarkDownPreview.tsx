@@ -48,7 +48,6 @@ export default function ProjectMarkdown() {
         >
           ← Back
         </button>
-
         <a
           href={project.githubUrl}
           target="_blank"
@@ -58,16 +57,13 @@ export default function ProjectMarkdown() {
           Source Code on Github ↗
         </a>
       </div>
-
       <div className="mb-8">
         <h1 className="text-3xl font-semibold text-gray-800">
           {project.title}
         </h1>
-
         <p className="text-xs text-gray-500 mt-2">
           {project.type} • {project.period}
         </p>
-
         <div className="flex flex-wrap gap-2 mt-3">
           <Suspense fallback={null}>
             {project.techUsed?.map((tech) => (
@@ -76,7 +72,6 @@ export default function ProjectMarkdown() {
           </Suspense>
         </div>
       </div>
-
       {content ? (
         <div className="bg-white rounded-lg p-6">
           <article className="markdown-body max-w-none">
@@ -93,7 +88,6 @@ export default function ProjectMarkdown() {
           <ComponentLoader text="Loading from Github..." />
         </Suspense>
       )}
-
       {content && (
         <div className="flex items-center justify-center mt-4 sm:mt-6 text-gray-500">
           <p className="text-xs text-center">
