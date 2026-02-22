@@ -54,13 +54,6 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                         <p className="text-[10px] text-gray-500 mt-1"> {proj.period}</p>
                         <p className="text-xs text-gray-500 mt-1"> {proj.btm_text}</p>
                   </div>
-                  <NavLink
-  to={`/projects/${proj.id}`}
-  className="text-sm underline text-gray-700 hover:text-black"
->
-  Read Full Case Study →
-</NavLink>
-
 
                   <p className="text-sm font-medium text-gray-600 text-center">{proj.type}</p>
 
@@ -88,7 +81,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                     <p className="font-medium">Features:</p>
                                     <ul>
                                         {proj.features.map((feat, i) => {
-                                          return  <li><Lightning className="inline-block" size={16} key={feat + i}  />{feat}</li>
+                                          return  <li><Lightning className="inline-block" size={16} key={feat}  />{feat}</li>
                                         })}
                                     </ul> 
                                   </div>
@@ -107,6 +100,11 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                   <Tag slotValue={tech} key={tech} doTransition={true} />
                                 ))}
                                 </div>
+                                {proj.markdown && <div>
+                                  <NavLink to={`/projects/${proj.id}`} className="inline-block mt-4 text-sm border border-gray-800 px-4 py-2 rounded text-center hover:bg-black hover:text-white transition">
+                                    README.md
+                                  </NavLink>
+                                </div>}
                                 <div className={proj.ext_buttons ? "flex gap-4 justify-base item-center mt-4 md:mt-6" : ''}>
                                   {proj.ext_buttons?.map((btn) => (
                                   <MLNotebookButtons key={btn.href} btn={btn} />
