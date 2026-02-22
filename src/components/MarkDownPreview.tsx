@@ -41,12 +41,20 @@ export default function ProjectMarkdown() {
     }
     return (
     <section className="max-w-5xl mx-auto px-4 py-10">
-        <button
-        onClick={() => navigate(-1)}
-        className="mb-6 border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
-        >
-        ← Back
-        </button>
+        <div className="mb-6 flex gap-4 items-center justify-between">
+            <button
+            onClick={() => navigate(-1)}
+            className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
+            >
+            ← Back
+            </button>
+            <a
+                href={project.githubUrl} target="_blank"
+                className="border border-gray-800 px-4 py-2 rounded-lg text-sm text-center hover:bg-black hover:text-white transition hover:cursor-pointer"
+                >
+                Source Code on Github &#x2197;
+            </a>
+        </div>
         <div className="mb-8">
         <h1 className="text-3xl font-semibold text-gray-800">
             {project.title}
