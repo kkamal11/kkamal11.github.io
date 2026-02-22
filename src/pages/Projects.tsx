@@ -59,7 +59,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
 
                   <div className="flex justify-start md:justify-end gap-2">
                     {proj.tags?.map((tag) => (
-                      <Tag slotValue={tag} key={tag} />
+                      <Tag slotValue={tag} key={tag + proj.id} />
                     ))}
                   </div>
                 </div>
@@ -80,8 +80,8 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                   <div>
                                     <p className="font-medium">Features:</p>
                                     <ul>
-                                        {proj.features.map((feat, i) => {
-                                          return  <li><Lightning className="inline-block" size={16} key={feat}  />{feat}</li>
+                                        {proj.features.map((feat) => {
+                                          return  <li  key={feat + proj.id}><Lightning className="inline-block" size={16} />{feat}</li>
                                         })}
                                     </ul> 
                                   </div>
@@ -97,7 +97,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                 <p className="font-medium mt-4">Tech Stack:</p>
                                 <div className="flex flex-wrap gap-2 mt-1">
                                 {proj.techUsed.map((tech) => (
-                                  <Tag slotValue={tech} key={tech} doTransition={true} />
+                                  <Tag slotValue={tech} key={tech + proj.id} doTransition={true} />
                                 ))}
                                 </div>
                                 {proj.markdown && <div>
