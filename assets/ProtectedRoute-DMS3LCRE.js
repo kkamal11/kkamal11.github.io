@@ -1,0 +1,1 @@
+import{t as o,j as t,P as r,v as u}from"./index-D94FFv1e.js";const i=["kishorkamal7091@gmail.com"];function l({children:a}){const{user:e,loading:s}=o();return s?t.jsx(r,{}):i.includes(e?.email||"")?a:t.jsx(u,{to:"/vault"})}export{l as default};
