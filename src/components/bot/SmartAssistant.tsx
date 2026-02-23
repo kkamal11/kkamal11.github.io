@@ -12,16 +12,23 @@ export default function SmartAssistant() {
 
   const message =
     INTRO_MESSAGES[location.pathname] ||
-    "👋 Welcome! Explore around 🙂";
+    "Welcome! Explore around 🙂";
 
   useEffect(() => {
-    setExpanded(true);
+    setExpanded(false);
 
-    const timer = setTimeout(() => {
+    const expandTimer = setTimeout(() => {
+      setExpanded(true);
+    }, 700);
+
+    const collapseTimer = setTimeout(() => {
       setExpanded(false);
-    }, 4000);
+    }, 4700);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(expandTimer);
+      clearTimeout(collapseTimer);
+    };
   }, [location.pathname]);
 
   return (
