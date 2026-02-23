@@ -12,7 +12,7 @@ export default function SmartAssistant() {
 
   const message =
     INTRO_MESSAGES[location.pathname] ||
-    "Welcome! Explore around 🙂";
+    "Explore around 🙂";
 
   useEffect(() => {
     setExpanded(false);
