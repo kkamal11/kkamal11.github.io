@@ -169,11 +169,11 @@ export default function About() {
           <div className="flex items-center justify-center mt-6">
             <button
             onClick={toggleCertCount}
-            className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+            className="border border-gray-400 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
             >
             {showAllCerts ? "Show Less" : "Show All"}
             </button>
-        </div>
+          </div>
           <Reveal hiddenClass="opacity-0 translate-y-12 scale-95">
             <p className="text-sm text-gray-500 text-center">
               I continuously invest in learning to design and build reliable, scalable systems that create lasting impact in real-world applications, while actively exploring new technologies across Software Engineering, Machine Learning, and Artificial Intelligence.
