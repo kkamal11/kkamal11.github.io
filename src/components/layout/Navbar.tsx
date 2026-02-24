@@ -30,14 +30,16 @@ export default function Navbar(){
             </li>
           ))}
         </ul>
-        <BookACallBtn />
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden text-xl"
-          onClick={() => setOpen(!open)}
-        >
-          ☰
-        </button>
+        <div className="flex gap-2 items-center">
+          <BookACallBtn />
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-xl hover:cursor-pointer"
+            onClick={() => setOpen(!open)}
+          >
+            ☰
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
