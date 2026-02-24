@@ -41,7 +41,7 @@ type Project = {
     imgPath?: string[],
     period: string,
     type: ProjectType,
-    markdown?: string
+    markdown: string
 }
 
 type Certificate = {

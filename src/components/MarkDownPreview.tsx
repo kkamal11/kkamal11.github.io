@@ -1,7 +1,13 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 
-import { ArrowSquareOut, CaretLeft } from "phosphor-react";
+import {
+  ArrowSquareOut,
+  FileText,
+  Link,
+  ArrowLeft,
+  DownloadSimple,
+} from "phosphor-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -36,6 +42,26 @@ export default function ProjectMarkdown() {
       });
   }, [project, navigate]);
 
+  const copyProjectLink = () => {
+  navigator.clipboard.writeText(window.location.href);
+  };
+
+  const downloadReadme = async (title: string, markdownUrl: string) => {
+    try {
+      const res = await fetch(markdownUrl);
+      const text = await res.text();
+      const blob = new Blob([text], { type: "text/markdown" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${title}-README.md`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (error: any) {
+      alert("Error downloading README." + error.message);
+    }
+  };
+
   if (!project || !project.markdown) {
     return <Navigate to="/projects" replace />;
   }
@@ -43,19 +69,53 @@ export default function ProjectMarkdown() {
   return (
     <section className="max-w-5xl mx-auto px-4 py-10">
       <div className="mb-6 flex gap-4 items-center justify-between">
-        <button
-          onClick={() => navigate(-1)}
-          className="border border-gray-800 px-2 py-2 rounded-lg text-sm hover:bg-black hover:text-white hover:cursor-pointer transition"
-        ><CaretLeft size={18} className="inline" />Back
-        </button>
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white transition"
-        >
-          Source Code <ArrowSquareOut size={18} className="inline" />
-        </a>
+          <button
+            onClick={() => navigate(-1)}
+            className=" p-2 border border-gray-300 rounded-lg hover:bg-black hover:text-white transition
+            "
+          ><ArrowLeft size={18}/>
+          </button>
+          <div className="flex items-center gap-2">
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="
+                p-2 border border-gray-300 rounded-lg
+                hover:bg-black hover:text-white transition
+              "
+              title="Source Code"
+            ><ArrowSquareOut size={18} />
+            </a>
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="
+                p-2 border border-gray-300 rounded-lg
+                hover:bg-black hover:text-white transition
+              "
+              title="View README on GitHub"
+            >
+              <FileText size={18} />
+            </a>
+          <button
+              onClick={copyProjectLink}
+              className="
+                p-2 border border-gray-300 rounded-lg
+                hover:bg-black hover:text-white transition hover:cursor-pointer
+              "
+              title="Copy project link"
+            >
+              <Link size={18} />
+          </button>
+            <button
+                onClick={() => { downloadReadme(project.title, project.markdown) }}
+                className="p-2 border border-gray-300 rounded-lg hover:bg-black hover:text-white transition hover:cursor-pointer"
+                title="Download README"
+              ><DownloadSimple size={18} />
+            </button>
+      </div>
       </div>
       <div className="mb-8">
         <h1 className="text-3xl font-semibold text-gray-800">
