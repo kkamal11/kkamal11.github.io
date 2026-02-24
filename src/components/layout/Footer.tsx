@@ -1,15 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { LinkedButton, GithubButton } from "../SocialButtons";
 import Reveal from "../Reveal";
+import {links} from "../../utils/AppConstants"
 
 export default function Footer() {
-  const links = [
-    { name: "Home", to: "/" },
-    { name: "About Me", to: "/about" },
-    { name: "Contact", to: "/contact" },
-    { name: "Projects", to: "/projects" },
-    { name: "Blog", to: "/blog" },
-  ];
 
   return (
     <footer className="relative w-full bg-gradient-to-r from-[#1b1b1b] via-[#202020] to-[#1b1b1b] border-t border-white/10 overflow-hidden group">
