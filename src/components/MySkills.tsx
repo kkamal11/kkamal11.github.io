@@ -53,7 +53,7 @@ export default function MySkills() {
       <div className="flex items-center justify-center mt-10">
         <button
           onClick={() => setExpanded((prev) => !prev)}
-          className="border border-gray-800 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-black hover:text-white transition cursor-pointer"
+          className="border border-gray-400 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-black hover:text-white transition cursor-pointer"
         >
           {expanded ? "Show Less" : "Expand All"}
         </button>

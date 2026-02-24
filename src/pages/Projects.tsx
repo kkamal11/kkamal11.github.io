@@ -128,7 +128,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                 ))}
                                 </div>
                                 {proj.markdown && <div>
-                                  <NavLink to={`/projects/${proj.id}`} className="inline-block mt-4 text-sm border border-gray-800 px-4 py-2 rounded text-center hover:bg-black hover:text-white transition">
+                                  <NavLink to={`/projects/${proj.id}`} className="inline-block mt-4 text-sm border border-gray-400 text-gray-800 px-4 py-2 rounded text-center hover:bg-black hover:text-white transition">
                                     README.md
                                   </NavLink>
                                 </div>}
@@ -148,7 +148,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
         {!showAll ? 
             <div className="flex items-center justify-center mt-2">
               <NavLink to={'/projects'}
-              className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+              className="border border-gray-400 text-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
               > See All
               </NavLink>
           </div>

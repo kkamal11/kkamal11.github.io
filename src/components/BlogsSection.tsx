@@ -24,7 +24,7 @@ export default function BlogsSection() {
         </div>
         <div className="flex items-center justify-center mt-6 sm:mt-12">
             <NavLink to={'/blog'}
-            className="border border-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+            className="border border-gray-400 px-4 py-2 rounded text-sm text-gray-800 hover:bg-black hover:text-white transition cursor-pointer"
             > View Blogs
             </NavLink>
         </div>

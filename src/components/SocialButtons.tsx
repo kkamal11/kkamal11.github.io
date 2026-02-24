@@ -23,7 +23,7 @@ export function GithubGrayButton({url}:GithubGrayButtonProps) {
     return (
         <div>
             <a href={url}target="_blank"
-              className="inline-flex items-center gap-1 text-sm text-gray-900 hover:text-gray-50 hover:bg-gray-900 transition duration-300 cursor-pointer hover:scale-110 border p-2 rounded"
+              className="inline-flex items-center gap-1 text-sm text-gray-800 hover:text-gray-50 hover:bg-gray-900 transition duration-300 cursor-pointer hover:scale-110 border border-gray-400 p-2 rounded"
             >
               Github<GithubLogo size={18} />
             </a>
