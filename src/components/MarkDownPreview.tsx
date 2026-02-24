@@ -1,6 +1,7 @@
 import { useEffect, useState, lazy, Suspense } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 
+import { ArrowSquareOut, CaretLeft } from "phosphor-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
@@ -44,9 +45,8 @@ export default function ProjectMarkdown() {
       <div className="mb-6 flex gap-4 items-center justify-between">
         <button
           onClick={() => navigate(-1)}
-          className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white hover:cursor-pointer transition"
-        >
-          ← Back
+          className="border border-gray-800 px-2 py-2 rounded-lg text-sm hover:bg-black hover:text-white hover:cursor-pointer transition"
+        ><CaretLeft size={18} className="inline" />Back
         </button>
         <a
           href={project.githubUrl}
@@ -54,7 +54,7 @@ export default function ProjectMarkdown() {
           rel="noreferrer"
           className="border border-gray-800 px-4 py-2 rounded-lg text-sm hover:bg-black hover:text-white transition"
         >
-          Source Code on Github ↗
+          Source Code <ArrowSquareOut size={18} className="inline" />
         </a>
       </div>
       <div className="mb-8">
