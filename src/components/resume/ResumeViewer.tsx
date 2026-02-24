@@ -11,22 +11,20 @@ export default function ResumeViewer() {
   return (
     <div className="w-full h-screen bg-[#f4f4f4] p-4">
       <div className="max-w-5xl mx-auto bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden h-full">
-
-        <div className="px-4 py-1 border-b border-gray-200 flex justify-between items-center">
+        <div className="px-4 py-2 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-center">
           <h2 className="text-lg font-semibold text-gray-900">
             Kamal's Resume Viewer
           </h2>
-
-          <div className="flex gap-2 bg-white px-2 py-2">
+          <div className="flex gap-2 bg-white px-2">
               <a
-                href="/resume.pdf"
+                href="/kamal_resume.pdf"
                 target="_blank"
                 className="p-2 rounded-full hover:bg-gray-100 transition"
                 title="View Resume"
               ><ArrowSquareOut size={18} />
               </a>
               <a
-                href="/resume.pdf"
+                href="/kamal_resume.pdf"
                 download
                 className="p-2 rounded-full hover:bg-gray-100 transition"
                 title="Download Resume"
@@ -42,7 +40,7 @@ export default function ResumeViewer() {
                 onClick={() => {
                   if (navigator.share) {
                     navigator.share({
-                      title: "Kamal Resume",
+                      title: "Kamal Kishor Resume",
                       url: window.location.href,
                     });
                   }
@@ -76,7 +74,7 @@ export default function ResumeViewer() {
         </div>
 
         <iframe
-          src="/resume.pdf"
+          src="/kamal_resume.pdf"
           title="Resume"
           className="w-full h-[calc(100%-56px)]"
         />
