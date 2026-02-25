@@ -10,7 +10,15 @@ export default function Navbar(){
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#F8F8F8] backdrop-blur ">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="text-xl font-bold tracking-tight">
-             <NavLink to='/'>KAMAL</NavLink>     
+            <NavLink to="/" className="relative group inline-flex items-center">
+              <span className="text-gray-600 absolute -left-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                &lt;
+              </span>
+              <span className="px-0.5 uppercase">KAMAL</span>
+              <span className="text-gray-600 absolute -right-6 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                /&gt;
+              </span>
+            </NavLink>
         </div>
         <ul className="hidden md:flex gap-8 text-sm font-medium text-gray-700">
           {links.slice(1).map((link) => (
