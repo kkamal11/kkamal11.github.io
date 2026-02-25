@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { LinkedButton, GithubButton } from "../SocialButtons";
+import { SocialButton } from "../SocialButtons";
 import Reveal from "../Reveal";
 import {links} from "../../utils/AppConstants"
 
@@ -28,7 +28,7 @@ export default function Footer() {
                     className={({ isActive }) =>
                       isActive
                         ? "px-4 py-1.5 rounded-md bg-white/10 text-white"
-                        : "hover:text-white transition"
+                        : "hover:text-white hover:scale-[1.03] transition duration-200"
                     }
                   >
                     {link.name}
@@ -37,8 +37,9 @@ export default function Footer() {
               </nav>
 
               <div className="pt-3 flex gap-3 justify-center sm:justify-start">
-                <LinkedButton />
-                <GithubButton />
+                <SocialButton link="https://www.linkedin.com/in/kkamal11" name="LinkedIn" bgColor="blue" />
+                <SocialButton link="https://github.com/kkamal11" name="Github" bgColor="gray" />
+                <SocialButton link="https://www.hackerrank.com/profile/kishorkamal7091" name="Hackerrank" bgColor="green" />
               </div>
             </div>
         </Reveal>
