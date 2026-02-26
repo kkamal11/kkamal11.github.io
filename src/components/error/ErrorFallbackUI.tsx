@@ -35,12 +35,12 @@ const FallbackUI: React.FC<Props> = ({ error }) => {
         </button>
       </div>
 
-      <div className="w-full max-w-3xl bg-zinc-900 border border-zinc-700 rounded-xl p-4 font-mono text-sm overflow-auto">
-        <p className="text-green-400 mb-2">$ error-log</p>
-        <pre className="text-red-400 whitespace-pre-wrap">
-{error?.stack || "No error details available"}
-        </pre>
-      </div>
+    {import.meta.env.VITE_APP_ENV == 'DEV' && <div className="w-full max-w-3xl bg-zinc-900 border border-zinc-700 rounded-xl p-4 font-mono text-sm overflow-auto">
+              <p className="text-green-400 mb-2">$ error-log</p>
+              <pre className="text-red-400 whitespace-pre-wrap">
+                  {error?.stack || "No error details available"}
+              </pre>
+          </div>}
     </div>
   );
 };
