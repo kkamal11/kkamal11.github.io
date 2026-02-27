@@ -26,7 +26,7 @@ export default function ProjectMarkdown() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [content, setContent] = useState("");
-  const project = Projects.find((p) => p.id === Number(id));
+  const project = Projects.find((p) => p.id === id);
 
   useEffect(() => {
     if (!project?.markdown) {

@@ -124,7 +124,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                                 <p className="font-medium mt-4">Tech Stack:</p>
                                 <div className="flex flex-wrap gap-2 mt-1">
                                 {proj.techUsed.map((tech) => (
-                                  <Tag slotValue={tech} key={tech + proj.id} doTransition={true} />
+                                  <Tag slotValue={tech} key={proj.id + tech} doTransition={true} />
                                 ))}
                                 </div>
                                 {proj.markdown && <div>

@@ -29,7 +29,7 @@ type ProjectType =
     | "HTTP Server";
 
 type Project = {
-    id:number,
+    id: string | number,
     title: string,
     btm_text: string,
     ext_buttons?: {href:string, label:string, img:string}[],
@@ -64,7 +64,7 @@ export type Blog = {
 
 export const Projects: Project[] = [
     {
-    id: -1,
+    id: "b3cae4b7-9101-4fac-bc4d-bb02108789ac",
     title: "Custom Python WSGI HTTP Server",
     btm_text: "Built a HTTP server from scratch with prefork workers, async handling, and monitoring using Python",
     description:
@@ -96,7 +96,7 @@ export const Projects: Project[] = [
     markdown:"https://raw.githubusercontent.com/kkamal11/custom-python-http-server/refs/heads/main/README.md"
   },
   {
-    id: 1,
+    id: "155ba70a-95ff-4609-a353-dd6c01598aff",
     title: "Bookly - FastAPI Beyond CRUD",
     btm_text: "Production-grade backend API with auth, email, logging, and testing",
     description:
@@ -128,7 +128,7 @@ export const Projects: Project[] = [
     markdown:"https://raw.githubusercontent.com/kkamal11/FastAPI-Bookly-Application/refs/heads/main/README.md"
   },
   {
-    id: 2,
+    id: "8e4a6a5c-ad45-4264-9f8d-b933c5f1622c",
     title: "AI-Powered Academic Portal",
     btm_text: "Full-stack academic platform with integrated AI and analytics",
     description:
@@ -165,7 +165,7 @@ export const Projects: Project[] = [
   },
 
   {
-    id: 3,
+    id: "f1c2d3e4-5678-9101-1121-314151617181",
     title: "Smart Contact Manager",
     btm_text: "Cloud-based contact management with OAuth authentication",
     description:
@@ -193,7 +193,7 @@ export const Projects: Project[] = [
     markdown:"https://raw.githubusercontent.com/kkamal11/Smart-Contact-Manager-Web-App/refs/heads/main/README.md"
   },
   {
-    id: 4,
+    id: "21f20008-04a5-4c3b-8c9d-12024a1b2c3d",
     title: "Recipe for Rating - Predict Food Ratings using ML",
     btm_text: "Machine learning system for predicting restaurant food ratings",
     ext_buttons: [
@@ -228,7 +228,7 @@ export const Projects: Project[] = [
   },
 
   {
-    id: 5,
+    id: "3a4b5c6d-7890-1234-5678-90abcdef1234",
     title: "Uncovering IPL Insights - Data Analysis of 15 Years of Cricket",
     btm_text: "Exploratory data analysis and visualization on IPL datasets",
     description:
@@ -250,7 +250,7 @@ export const Projects: Project[] = [
   },
 
   {
-    id: 6,
+    id: "4d5e6f7a-8901-2345-6789-0abcdef12345",
     title: "Quantified Self App v2.0",
     btm_text: "Advanced self-tracking and analytics web platform",
     description:
@@ -284,7 +284,7 @@ export const Projects: Project[] = [
     markdown:"https://raw.githubusercontent.com/kkamal11/Quantified_Self_App_v2.0/refs/heads/main/README.md"
   },
   {
-    id: 7,
+    id: "5e6f7a8b-9012-3456-7890-abcdef123456",
     title: "Quantified Self App v1",
     btm_text: "Initial version of the self-tracking application",
     description:
