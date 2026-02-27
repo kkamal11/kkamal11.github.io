@@ -10,7 +10,7 @@ type ProjectsSectionProps = {
 };
 
 type Project = {
-    id:number,
+    id:string | number,
     title: string,
     btm_text: string,
     ext_buttons?: {href:string, label:string, img:string}[],
