@@ -31,7 +31,7 @@ const loadProjects = async () => {
 };
 
 export default function ProjectsSection({ showAll = true }: ProjectsSectionProps) {
-  const [openId, setOpenId] = useState<number | null>(null);
+  const [openId, setOpenId] = useState<string | null>(null);
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
