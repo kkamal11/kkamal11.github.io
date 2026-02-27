@@ -70,7 +70,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                 key={proj.id}
                 className="py-6"
                 onMouseEnter={() => setOpenId(proj.id)}
-                onMouseLeave={() => setOpenId(null)}
+                onMouseLeave={() => setOpenId(0)}
               >
                 {/* Row */}
                 <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 cursor-pointer group">
