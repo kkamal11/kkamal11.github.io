@@ -24,7 +24,7 @@ export function SocialButton({ link, name, bgColor = "gray" }: SocialButtonsProp
     <a
       href={link}
       target="_blank"
-      className={`${colorMap[bgColor as keyof typeof colorMap]} px-3 py-2 rounded-md text-gray-100 font-medium text-sm scale-95 hover:scale-[1.03] transition duration-200`}
+      className={`flex-shrink-0 ${colorMap[bgColor as keyof typeof colorMap]} px-3 py-2 rounded-md text-gray-100 font-medium text-sm scale-95 hover:scale-[1.03] transition duration-200`}
       >{name}
     </a>
     )

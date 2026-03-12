@@ -36,7 +36,7 @@ export default function Footer() {
                 ))}
               </nav>
 
-              <div className="pt-3 flex gap-3 justify-center sm:justify-start">
+              <div className="pt-3 flex gap-3 justify-center sm:justify-start overflow-x-auto no-scrollbar whitespace-nowrap">
                 <SocialButton link="https://www.linkedin.com/in/kkamal11" name="LinkedIn" bgColor="blue" />
                 <SocialButton link="https://github.com/kkamal11" name="Github" bgColor="gray" />
                 <SocialButton link="https://www.hackerrank.com/profile/kishorkamal7091" name="Hackerrank" bgColor="green" />
