@@ -14,7 +14,9 @@ const colorMap = {
   blue: "bg-blue-600 hover:bg-blue-700",
   gray: "bg-gray-600 hover:bg-gray-700",
   green: "bg-green-600 hover:bg-green-700",
-  maroon: "bg-red-800 hover:bg-red-900"
+  maroon: "bg-red-800 hover:bg-red-900",
+  yellow: "bg-yellow-600 hover:bg-yellow-700",
+  
 };
 
 export function SocialButton({ link, name, bgColor = "gray" }: SocialButtonsProps) {
