@@ -76,7 +76,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
               <div
                 key={proj.id}
                 className="py-6"
-                onClick={() => setOpenId(proj.id)}
+                onClick={() => setOpenId(openId === proj.id ? 0 : proj.id)}
                 // onMouseLeave={() => setOpenId(0)}
               >
                 {/* Row */}
