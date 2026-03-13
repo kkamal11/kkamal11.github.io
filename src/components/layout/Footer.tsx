@@ -19,7 +19,7 @@ export default function Footer() {
       <div className="relative max-w-7xl mx-auto px-10 py-8 flex flex-col sm:flex-row space-y-7 sm:space-y-0 items-center justify-between">
         {/* Left */}
         <Reveal hiddenClass="opacity-0 -translate-x-16">
-            <div>
+            <div className="flex flex-col gap-4 items-center">
               <nav className="flex items-center gap-4 text-sm text-gray-300">
                 {links.map((link) => (
                   <NavLink
@@ -55,10 +55,15 @@ export default function Footer() {
       {/* Bottom credit */}
       <Reveal hiddenClass="opacity-0 translate-y-2 scale-95">
         <div className="relative text-center text-[10px] text-gray-400 pb-5 px-2">
+          <div>
             Developed & designed by <a href="https://github.com/kkamal11" target="_blank" className="text-gray-200 font-medium">Kamal</a> using{" "}
             <span className="text-blue-400">React</span>, {" "}
             <span className="text-cyan-400">TypeScript</span> &{" "}
             <span className="text-blue-300">Tailwind CSS</span>
+          </div>
+          <div className="pt-1">
+             © {new Date().getFullYear()} Kamal Kishor Chaurasiya. All rights reserved.
+          </div>
         </div>
       </Reveal>
     </footer>
