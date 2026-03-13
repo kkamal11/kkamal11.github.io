@@ -1,13 +1,15 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { GithubGrayButton, GithubGrayButtonRound } from "../components/SocialButtons";
-import { Lightning } from "phosphor-react";
+import { Lightning, X } from "phosphor-react";
 import ImageCard from '../components/PimageCard';
 import { Tag } from "../components/Tag";
 
 type ProjectsSectionProps = {
   showAll?: boolean;
 };
+
+type EventType = React.MouseEvent<HTMLButtonElement>;
 
 type Project = {
     id:string | number,
@@ -40,6 +42,11 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
 
   const visibleProjects = showAll ? projects : projects.slice(0, 3);
 
+  const closeOpenedProject = (e: EventType) => {
+    e.stopPropagation();
+    setOpenId(0);
+  }
+
   return (
     <section className="bg-white py-10 px-12">
       <div className="max-w-7xl mx-auto">
@@ -69,8 +76,8 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
               <div
                 key={proj.id}
                 className="py-6"
-                onMouseEnter={() => setOpenId(proj.id)}
-                onMouseLeave={() => setOpenId(0)}
+                onClick={() => setOpenId(proj.id)}
+                // onMouseLeave={() => setOpenId(0)}
               >
                 {/* Row */}
                 <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-6 cursor-pointer group">
@@ -101,7 +108,13 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                   <div className="ml-0 bg-white border border-gray-200 rounded p-6 text-sm text-gray-600 shadow-sm">
                         <div className="">
                             <div className="flex flex-col">
-                                <p className="leading-relaxed pb-3 text-gray-700 text-[15px] italic tracking-[0.01em]">{proj.description}</p>
+                                <div className="flex justify-between items-start gap-4 ">
+                                  <p className="leading-relaxed pb-3 text-gray-700 text-[15px] italic tracking-[0.01em]">{proj.description}</p>
+                                  <button
+                                    onClick={(e) => closeOpenedProject(e)}
+                                    className="hover:scale-110 transition-transform hover:text-gray-700"
+                                  ><X size={24} /></button>
+                                </div>
                                 {/* {Feature + img + github btn} */}
                                 <div className="flex flex-col sm:flex-row justify-between items-center">
                                   <div>
