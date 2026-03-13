@@ -1,3 +1,4 @@
+import { EnvelopeSimple, LinkedinLogo } from "phosphor-react";
 import { useState } from "react";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -36,7 +37,24 @@ export default function Contact() {
       <div className="max-w-xl w-full bg-white rounded-xl shadow-sm border border-gray-200 p-10 space-y-6">
 
         <div>
-          <h1 className="text-3xl font-[400px] tracking-tight text-gray-800 whitespace-nowrap mb-1">Contact Me</h1>
+          <div className="flex flex-row items-center justify-between">
+              <h1 className="text-3xl font-[400px] tracking-tight text-gray-800 whitespace-nowrap mb-1">Contact Me</h1>
+              <div className="flex">
+                <a href="https://www.linkedin.com/in/kkamal11"
+                    target="_blank"
+                    className="p-2 rounded-full hover:bg-gray-100 transition"
+                    title="LinkedIn"
+                  >
+                    <LinkedinLogo size={18} />
+                </a>
+                <a
+                  href="mailto:dev.kamal.kishor@gmail.com"
+                  className="p-2 rounded-full hover:bg-gray-100 transition"
+                  title="Mail"
+                ><EnvelopeSimple size={18} />
+                </a>
+              </div>
+          </div>
           <p className="text-gray-500 text-sm">
             Let's build something meaningful together.
           </p>

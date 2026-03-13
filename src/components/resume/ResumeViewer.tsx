@@ -67,7 +67,7 @@ export default function ResumeViewer() {
               <a
                 href="mailto:dev.kamal.kishor@gmail.com"
                 className="p-2 rounded-full hover:bg-gray-100 transition"
-                title="Contact"
+                title="Mail"
               ><EnvelopeSimple size={18} />
               </a>
             </div>
