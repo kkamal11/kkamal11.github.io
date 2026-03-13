@@ -101,7 +101,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                 {/* Animated Expand Panel */}
                 <div
                   className={`
-                    overflow-auto transition-all duration-700 ease-out
+                    overflow-auto transition-all duration-800 ease-out
                     ${isOpen ? "opacity-100 mt-6" : "max-h-0 opacity-0"}
                   `}
                 >
