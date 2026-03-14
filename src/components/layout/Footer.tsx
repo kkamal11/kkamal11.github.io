@@ -27,8 +27,8 @@ export default function Footer() {
                     to={link.to}
                     className={({ isActive }) =>
                       isActive
-                        ? "px-4 py-1.5 rounded-md bg-white/10 text-white"
-                        : "hover:text-white hover:scale-[1.03] transition duration-200"
+                        ? "px-4 py-1.5 rounded-md bg-white/10 text-white flex-shrink-0"
+                        : "hover:text-white hover:scale-[1.03] transition duration-200 flex-shrink-0"
                     }
                   >
                     {link.name}
