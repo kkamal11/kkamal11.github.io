@@ -278,7 +278,7 @@ export const Projects: Project[] = [
       "Responsive UI with dark mode"
     ],
     tags: ["Full Stack", "Productivity"],
-    imgPath: [qty_self_2],
+    imgPath: [qty_self_2, qty_self_2],
     period: 'September 2021 - December 2021',
     type: "Full Stack Web App",
     markdown:"https://raw.githubusercontent.com/kkamal11/Quantified_Self_App_v2.0/refs/heads/main/README.md"

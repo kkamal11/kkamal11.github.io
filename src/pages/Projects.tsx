@@ -243,10 +243,17 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
 
                       {/* ── Row 5: Images ── */}
                       {proj.imgPath && proj.imgPath.length > 0 && (
-                        <div className="flex flex-wrap gap-3">
-                          {proj.imgPath.map((path, i) => (
-                            <ImageCard key={i} src={path} alt="Image" caption="" />
-                          ))}
+                        <div>
+                          <p
+                            style={{ fontFamily: "'DM Mono', monospace" }}
+                            className="text-[12px] tracking-widest uppercase text-gray-400 mb-3"
+                          >Preview</p>
+                
+                          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                            {proj.imgPath.map((path, i) => (
+                              <ImageCard key={i} src={path} alt="Image" caption="" />
+                            ))}
+                          </div>
                         </div>
                       )}
 

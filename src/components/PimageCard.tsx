@@ -17,7 +17,7 @@ export default function PimageCard({ src, alt = "", caption }: Props) {
       <div className="flex flex-col items-center">
         <div
           onClick={() => setLightboxOpen(true)}
-          className="relative w-40 h-28 rounded-[6px] overflow-hidden cursor-zoom-in
+          className="relative w-68 h-44 rounded-[6px] overflow-hidden cursor-zoom-in
             bg-[#e8e5de] border border-black/[0.08]
             transition-all duration-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)]
             hover:-translate-y-[3px] hover:scale-[1.02]
