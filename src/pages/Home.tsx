@@ -77,11 +77,11 @@ export default function Home() {
           {/* Stats */}
           <div className="flex gap-10 text-sm text-gray-600 mb-10 opacity-0 animate-fade-up [animation-delay:0.1s]">
             <div>
-              <div className="text-3xl font-light">{yoe}+</div>
+              <div className="font-medium text-xl">{yoe}+</div>
               <div className="uppercase tracking-wide text-xs">Years Of Experience</div>
             </div>
             <div>
-              <div className="text-3xl font-light">{projectCount}+</div>
+              <div className="font-medium text-xl">{projectCount}+</div>
               <div className="uppercase tracking-wide text-xs">Projects Completed</div>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
           {/* Subtitle */}
           <p className="text-gray-500  sm:text-lg flex items-center gap-2 max-w-md opacity-0 animate-fade-up [animation-delay:0.5s]">
             <span className="inline-block w-8 h-px bg-gray-400 origin-left transform scale-x-90 transition-all duration-700 group-hover:scale-x-100 group-hover:bg-gray-700"></span>
-            It's <span className="underline-offset-2 group-hover:underline">Kamal Kishor</span> - a Software Developer
+            It's <span className="underline-offset-3 group-hover:underline decoration-[#c8440a]">Kamal Kishor</span> - a <em className="font-medium text-[#c8440a]">Software Developer</em>
           </p>
         </div>
         {/* Scroll Down */}
@@ -109,7 +109,7 @@ export default function Home() {
 
         {/* Animated Vertical Line */}
         <div className="absolute -left-12 lg:ml-32 top-40 bottom-20 w-px bg-gray-300" />
-        <div className="absolute -left-12 lg:ml-32 top-40 bottom-20 w-px bg-gray-700 origin-top transform scale-y-0 transition-transform duration-700 group-hover:scale-y-100" />
+        <div className="absolute -left-12 lg:ml-32 top-40 bottom-20 w-px bg-[#c8440a] origin-top transform scale-y-0 transition-transform duration-700 group-hover:scale-y-100" />
 
         {/* Vertical Year */}
         <div className="-left-12 lg:ml-32 absolute bottom-10 text-xs tracking-widest rotate-270 origin-left text-gray-400 opacity-0 animate-fade-up [animation-delay:0.9s]">
