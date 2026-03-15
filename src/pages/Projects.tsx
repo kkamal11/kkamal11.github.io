@@ -68,7 +68,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
         {/* Column Headers */}
         <div
           style={{  borderBottom: "1px solid #1a1916" }}
-          className="hidden md:grid grid-cols-[44px_1fr_160px_40px] gap-4 px-2 pb-2.5 text-[13px] text-gray-400 tracking-widest uppercase mb-0"
+          className="hidden md:grid grid-cols-[44px_1fr_180px_120px] gap-4 px-2 pb-2.5 text-[13px] text-gray-400 tracking-widest uppercase mb-0"
         >
           <span>No.</span>
           <span>Project</span>
@@ -90,7 +90,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
               >
                 {/* ── Grid Row ── */}
                 <div
-                  className={`grid grid-cols-1 md:grid-cols-[44px_1fr_160px_40px] gap-4 px-2 py-[18px] items-center transition-colors duration-150 ${
+                  className={`grid grid-cols-1 md:grid-cols-[44px_1fr_180px_120px] gap-4 px-2 py-[18px] items-center transition-colors duration-150 ${
                     isOpen ? "bg-[#f0ede5]" : "hover:bg-[#f0ede5]"
                   }`}
                 >
