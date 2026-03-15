@@ -26,13 +26,10 @@ export default function AssistantBubble({ expanded, message, onClick }: Props) {
           {/* Pulsing dot */}
           <span className="w-1.5 h-1.5 rounded-full bg-[#c8440a] animate-pulse shrink-0" />
           <span
-            style={{ fontFamily: "'DM Mono', monospace" }}
-            className="text-[11px] tracking-wide text-gray-700 whitespace-nowrap truncate"
+            className="text-[12px] tracking-wide text-gray-700 whitespace-nowrap truncate"
           >
             {message}
           </span>
-          {/* Close hint */}
-          <span className="text-gray-300 text-[11px] shrink-0 ml-1">✕</span>
         </div>
       ) : (
         /* Collapsed — chat icon in SVG instead of emoji */
