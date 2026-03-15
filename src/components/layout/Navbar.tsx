@@ -1,21 +1,38 @@
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 import BookACallBtn from "../BookAcCallBtn";
 import { links } from "../../utils/AppConstants";
 
-export default function Navbar(){
+export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu on route change
+  useEffect(() => { setOpen(false); }, [location]);
+
+  // Elevate navbar on scroll
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-[#F8F8F8] backdrop-blur ">
+    <nav className={`fixed top-0 left-0 w-full z-50 bg-[#F8F8F8] backdrop-blur 
+    ${scrolled
+          ? "bg-white/95 backdrop-blur-md border-b border-[#e8e6df]"
+          : "bg-[#F8F8F8] border-b border-transparent"
+        }`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="text-xl font-bold tracking-tight">
             <NavLink to="/" className="relative group inline-flex items-center">
-              <span className="text-gray-600 absolute -left-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+              <span className="text-[#c8440a] absolute -left-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                 &lt;
               </span>
-              <span className="px-0.5 uppercase">KAMAL</span>
-              <span className="text-gray-600 absolute -right-6 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+            <span className={`px-0.5 uppercase 
+              ${location.pathname === '/' ? 'underline underline-offset-6 decoration-[#c8440a] decoration-2' : ''}`}>KAMAL</span>
+              <span className="text-[#c8440a] absolute -right-6 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                 /&gt;
               </span>
             </NavLink>
@@ -24,7 +41,7 @@ export default function Navbar(){
           {links.slice(1).map((link) => (
             <li key={link.name}>
               <NavLink className={({ isActive }) =>
-              isActive ? 'text-gray-950 hover:text-black transition':'hover:text-black transition'}
+              isActive ? 'text-gray-950 hover:text-black transition underline underline-offset-6 decoration-[#c8440a] decoration-2':'hover:text-black transition'}
                 to={link.to}>
                 {link.name}
               </NavLink>
