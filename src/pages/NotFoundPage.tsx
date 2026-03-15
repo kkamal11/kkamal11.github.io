@@ -1,81 +1,117 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ArrowLeft } from "phosphor-react";
 
 const NotFoundPage: React.FC = () => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const t = setTimeout(() => setVisible(true), 60);
+    return () => clearTimeout(t);
+  }, []);
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-[#F0F0F0] via-[#E5E5E5] to-[#F0F0F0] flex items-center justify-center overflow-hidden">
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -left-40 w-80 h-80 bg-[#7B7B7B]/30 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob"></div>
-        <div className="absolute -bottom-40 right-40 w-80 h-80 bg-[#7B7B7B]/20 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob animation-delay-2000"></div>
-        <div className="absolute top-1/2 left-1/2 w-80 h-80 bg-[#7B7B7B]/25 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-blob animation-delay-4000"></div>
-      </div>
+    <div
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="relative min-h-screen bg-white flex items-center justify-center overflow-hidden px-6"
+    >
+      {/* Corner marks */}
+      <span className="absolute top-5 left-5 w-4 h-4 border-t border-l border-gray-200" />
+      <span className="absolute top-5 right-5 w-4 h-4 border-t border-r border-gray-200" />
+      <span className="absolute bottom-5 left-5 w-4 h-4 border-b border-l border-gray-200" />
+      <span className="absolute bottom-5 right-5 w-4 h-4 border-b border-r border-gray-200" />
+      <div className="relative z-10 flex flex-col items-center text-center gap-8 max-w-lg">
 
-      {/* Content */}
-      <div className="relative z-10 text-center px-6">
-        
-        {/* Error Code */}
-        <div className="mt-4">
-          <div className="text-9xl font-black text-[#7B7B7B] drop-shadow-sm animate-bounce">
-            404
-          </div>
+        {/* 404 — large editorial number */}
+        <div
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 0.6s ease 0.1s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.1s",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              letterSpacing: "-0.06em",
+              lineHeight: 1,
+              WebkitTextStroke: "1px #e8e6df",
+            }}
+            className="text-[10rem] md:text-[14rem] font-light text-transparent select-none"
+          >
+            4
+            <span style={{ WebkitTextStroke: "1px #c8440a" }} className="text-transparent">
+              0
+            </span>
+            4
+          </span>
         </div>
 
-        {/* Error Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-700 mb-8">
-          Page Not Found
-        </h1>
+        {/* Label + heading */}
+        <div
+          className="flex flex-col gap-3"
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(12px)",
+            transition: "opacity 0.6s ease 0.25s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.25s",
+          }}
+        >
+          <span
+            style={{ fontFamily: "'DM Mono', monospace" }}
+            className="text-[10px] tracking-widest uppercase text-gray-400 flex items-center justify-center gap-2"
+          >
+            <span className="w-4 h-px bg-gray-300 inline-block" />
+            Page not found
+            <span className="w-4 h-px bg-gray-300 inline-block" />
+          </span>
 
-        {/* Floating Question Mark */}
-        <div className="flex justify-center mb-8">
-          <div className="w-32 h-32 rounded-full border-4 border-gray-300 flex items-center justify-center text-6xl text-[#7B7B7B] animate-pulse shadow bg-white/60">
-            ?
-          </div>
+          <h1
+            style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "-0.02em" }}
+            className="text-3xl md:text-4xl font-light text-gray-900 leading-tight"
+          >
+            Looks like you're <em className="text-[#c8440a]">lost</em>.
+          </h1>
+
+          <p className="text-[14px] text-gray-500 leading-relaxed">
+            The page you're looking for doesn't exist or has been moved.
+          </p>
         </div>
 
-        {/* Error Message */}
-        <p className="text-gray-500 mb-8 text-base md:text-lg">
-          The page you're trying to access could not be found. Let's get you back on track.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center ">
+        {/* CTA */}
+        <div
+          style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? "translateY(0)" : "translateY(8px)",
+            transition: "opacity 0.6s ease 0.4s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.4s",
+          }}
+        >
           <Link
             to="/"
-            className="inline-block px-8 py-3 bg-[#7B7B7B] hover:bg-gray-600 text-white font-semibold rounded-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg"
+            className="inline-flex items-center gap-2 text-[11px] tracking-wide uppercase
+              text-gray-900 border border-gray-900 px-6 py-2.5 rounded-[3px]
+              hover:bg-gray-900 hover:text-white transition-colors duration-150"
           >
-            Go Back Home
+            <ArrowLeft size={12} />
+            Back to Home
           </Link>
         </div>
+
+        {/* Wordmark watermark */}
+        <div
+          className="absolute -bottom-8 left-1/2 -translate-x-1/2 pointer-events-none select-none"
+          style={{
+            opacity: visible ? 0.04 : 0,
+            transition: "opacity 0.8s ease 0.6s",
+          }}
+        >
+          <span
+            style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "-0.04em" }}
+            className="text-[8rem] font-light text-gray-900 whitespace-nowrap"
+          >
+            Kamal.
+          </span>
+        </div>
       </div>
-
-      {/* Tailwind animation config */}
-      <style>{`
-        @keyframes blob {
-          0%, 100% {
-            transform: translate(0, 0) scale(1);
-          }
-          33% {
-            transform: translate(30px, -50px) scale(1.1);
-          }
-          66% {
-            transform: translate(-20px, 20px) scale(0.9);
-          }
-        }
-
-        .animate-blob {
-          animation: blob 8s infinite;
-        }
-
-        .animation-delay-2000 {
-          animation-delay: 2s;
-        }
-
-        .animation-delay-4000 {
-          animation-delay: 4s;
-        }
-      `}</style>
     </div>
   );
 };
