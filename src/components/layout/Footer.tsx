@@ -107,15 +107,17 @@ export default function Footer() {
           {/* Right — email */}
           <Reveal hiddenClass="opacity-0 translate-x-8">
             <div className="flex flex-col items-start md:items-end gap-3">
-              <span
-                style={{ fontFamily: "'DM Mono', monospace" }}
-                className="text-[10px] tracking-widest uppercase text-white/30 flex items-center gap-2"
-              >
+              <NavLink to={'/contact'} >
+                <span
+                  style={{ fontFamily: "'DM Mono', monospace" }}
+                  className="text-[10px] tracking-widest uppercase text-white/30 flex items-center gap-2"
+                >
                 <span className="w-4 h-px bg-white/20 inline-block" />
                 Get in touch
-              </span>
+                </span>
+              </NavLink>
 
-              <button onClick={copyEmail} className="group/email text-left">
+              <button onClick={copyEmail} className="group/email text-left cursor-pointer">
                 <p
                   style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "-0.01em" }}
                   className="text-xl sm:text-2xl md:text-3xl font-light text-white/80
@@ -131,7 +133,7 @@ export default function Footer() {
                   {copied ? (
                     <span className="text-emerald-400">✓ Copied</span>
                   ) : (
-                    <span className="text-white/30 group-hover/email:text-white/60 transition-colors cursor-pointer">
+                    <span className="text-white/30 group-hover/email:text-white/60 transition-colors">
                       Click to copy
                     </span>
                   )}

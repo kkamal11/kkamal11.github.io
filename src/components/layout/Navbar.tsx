@@ -30,8 +30,8 @@ export default function Navbar() {
               <span className="text-[#c8440a] absolute -left-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                 &lt;
               </span>
-            <span className={`px-0.5 uppercase 
-              ${location.pathname === '/' ? 'underline underline-offset-6 decoration-[#c8440a] decoration-2' : ''}`}>KAMAL</span>
+            <span className={`px-0.5 uppercase tracking-wide
+              ${location.pathname === '/' ? 'underline underline-offset-6 decoration-[#c8440a] decoration-2' : ''}`}><em>KAMAL</em></span>
               <span className="text-[#c8440a] absolute -right-6 opacity-0 translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                 /&gt;
               </span>
