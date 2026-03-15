@@ -2,6 +2,7 @@ import { lazy, useEffect, useState } from "react";
 import AboutComponent from "../components/AboutMeOnHome";
 import Projects from './Projects'
 import { GithubLogo, LinkedinLogo, EnvelopeSimple } from 'phosphor-react';
+import Testimonials from "../components/Testimonials";
 
 const BlogsSection = lazy(() => import("../components/BlogsSection"));
 const MySkills = lazy(() => import("../components/MySkills"));
@@ -130,6 +131,9 @@ export default function Home() {
       </div>
       <div>
           <BlogsSection />
+      </div>
+      <div>
+          {/* <Testimonials /> */}
       </div>
     </>
   );

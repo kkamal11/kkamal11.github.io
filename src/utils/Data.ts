@@ -474,3 +474,63 @@ export const skills = [
   {name:"AWS", icon:"/icons/aws.svg", category: "Cloud" },
 
 ];
+
+
+type Testimonial = {
+  id: number;
+  name: string;
+  role: string;
+  company: string;
+  quote: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    id: 1,
+    name: "Priya Sharma",
+    role: "Engineering Manager",
+    company: "Oracle",
+    quote:
+      "Kamal consistently delivered high-quality solutions under tight deadlines. His ability to navigate complex backend systems while keeping code clean is exceptional.",
+  },
+  {
+    id: 2,
+    name: "Arjun Mehta",
+    role: "Senior Software Engineer",
+    company: "NIT Kurukshetra",
+    quote:
+      "Working alongside Kamal was a pleasure. He brings clarity to ambiguous problems and always takes ownership — from system design through to deployment.",
+  },
+  {
+    id: 3,
+    name: "Sneha Rajan",
+    role: "Teaching Coordinator",
+    company: "IIT Madras",
+    quote:
+      "As a TA, Kamal had a rare gift for breaking down difficult ML concepts into intuitive explanations. Students consistently rated his sessions as the most impactful.",
+  },
+  {
+    id: 4,
+    name: "Rahul Verma",
+    role: "Full Stack Developer",
+    company: "Freelance",
+    quote:
+      "Kamal's attention to detail in frontend work is impressive — pixel-perfect, responsive, and always with thoughtful UX decisions that go beyond the brief.",
+  },
+  {
+    id: 5,
+    name: "Divya Nair",
+    role: "Product Manager",
+    company: "Infosys",
+    quote:
+      "Kamal has a rare combination of strong technical skills and clear communication. He understood requirements quickly and delivered solutions that exceeded expectations.",
+  },
+  {
+    id: 6,
+    name: "Karan Singh",
+    role: "Data Scientist",
+    company: "IIT Madras",
+    quote:
+      "Kamal's grasp of data pipelines and ML workflows is solid. He helped our team optimize a critical processing stage that cut latency by over 40%.",
+  },
+];
