@@ -1,4 +1,4 @@
-import { Laptop, GraduationCap, Briefcase, Sparkle, Medal } from "phosphor-react";
+import { Laptop, GraduationCap, Briefcase, Medal } from "phosphor-react";
 import focusImg from '../assets/focus.webp'
 import { certificates } from "../utils/Data";
 import { useState } from "react";
@@ -159,12 +159,9 @@ export default function About() {
 
           {/* Certificates */}
           <Reveal hiddenClass="opacity-0 translate-x-16">
-          <div>
-              <div className="flex items-center gap-3 mb-6">
-                <Medal size={20} className="text-gray-500" />
-              <h4 className="uppercase tracking-widest text-xs text-gray-500">Certifications</h4>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          <div> 
+            <SectionLabel icon={<Medal size={18} />} label="Certifications" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-4">
               {visibleCertificates.map(cert => {
                 return <CertCard
                   title={cert.title}
