@@ -5,12 +5,16 @@ import Reveal from "./Reveal";
 export default function About() {
   return (
     <div className="relative bg-[#f7f7f5] mx-4 md:mx-18 py-12 text-gray-600">
-      <div className="flex items-center gap-4 mb-2">
-        <h1 className="text-3xl text-gray-700 whitespace-nowrap">About Me</h1>
-        <div className="h-px flex-1 bg-gray-300 opacity-60 mr-32 lg:mr-72" />
+      <div className="flex items-center gap-4 pb-4 border-b border-gray-200">
+          <h1
+            style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "-0.02em" }}
+            className="text-4xl font-light leading-tight text-gray-900"
+          >
+            About <em className="text-[#c8440a]">Me</em>
+          </h1>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr_1fr] gap-10 text-sm">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr_1fr] gap-10 text-sm py-4">
         <Reveal hiddenClass="opacity-0 -translate-x-16">
           <div className="">
             <p className="leading-relaxed">
