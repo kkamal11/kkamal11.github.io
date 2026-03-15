@@ -158,7 +158,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
                     transition: "max-height 0.5s cubic-bezier(0.16,1,0.3,1)",
                   }}
                 >
-                  <div className="pb-6" onClick={(e) => e.stopPropagation()}>
+                  <div className="" onClick={(e) => e.stopPropagation()}>
                     <div className="bg-[#f5f3ee] rounded-md p-5 md:p-6 flex flex-col gap-5">
 
                       {/* ── Row 1: Description [left] | Period [right] ── */}
@@ -267,7 +267,7 @@ export default function ProjectsSection({ showAll = true }: ProjectsSectionProps
 
         {/* See All */}
         {!showAll && (
-          <div className="flex items-center justify-center mt-2">
+          <div className="flex items-center justify-center mt-2 sm:mt-8">
               <NavLink to={'/projects'}
               className="border border-gray-400 text-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
               > View All Projects
