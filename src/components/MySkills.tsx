@@ -4,38 +4,86 @@ import Reveal from "./Reveal";
 
 const categories = ["All", "Frontend", "Backend", "Database", "AI/ML", "Tools", "Cloud"];
 
+const categoryAccent: Record<string, { border: string; bg: string; dot: string }> = {
+  All:      { border: "#1a1916", bg: "#f5f3ee", dot: "#1a1916" },
+  Frontend: { border: "#c8440a", bg: "#fff5f0", dot: "#c8440a" },
+  Backend:  { border: "#0a6bc8", bg: "#f0f6ff", dot: "#0a6bc8" },
+  Database: { border: "#0a8c5a", bg: "#f0fff8", dot: "#0a8c5a" },
+  "AI/ML":  { border: "#7c3ac8", bg: "#f8f0ff", dot: "#7c3ac8" },
+  Tools:    { border: "#b87d0a", bg: "#fffbf0", dot: "#b87d0a" },
+  Cloud:    { border: "#0a7ab8", bg: "#f0faff", dot: "#0a7ab8" },
+};
+
 export default function MySkills() {
   const DEFAULT_COUNT = 24;
   const [expanded, setExpanded] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
-  const visibleSkills = expanded ? stack : stack.slice(0, DEFAULT_COUNT);
+  const filteredSkills =
+    activeCategory === "All"
+      ? stack
+      : stack.filter((s) => s.category === activeCategory);
 
-  const handleSelectedCategory = (category: string) => {
-    setExpanded(true);
-    setActiveCategory(category);
-  }
+  const visibleSkills = expanded || activeCategory !== "All"
+    ? filteredSkills
+    : filteredSkills.slice(0, DEFAULT_COUNT);
+
+  const handleSelectedCategory = (cat: string) => {
+    setActiveCategory(cat);
+  };
+
+  const count = filteredSkills.length;
 
   return (
-    <section className="bg-[#F8F8F8] pb-12">
-      <h1 className="text-4xl font-[400px] tracking-tight text-gray-800 text-center mb-6">
-        My Skill Highlights
-      </h1>
+    <section className="bg-[#F8F8F8] pb-12 px-6 md:px-16">
+      <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 pb-4 border-b border-gray-200">
+          <h1
+            style={{ fontFamily: "'DM Sans', sans-serif", letterSpacing: "-0.02em" }}
+            className="text-4xl font-light text-gray-900"
+          >
+            My <em className="text-[#c8440a]">Skills</em>
+          </h1>
+          <span
+            style={{ fontFamily: "'DM Mono', monospace" }}
+            className="text-[10px] tracking-widest uppercase text-gray-400"
+          >
+            {count} {activeCategory === "All" ? "technologies" : `in ${activeCategory}`}
+          </span>
+        </div>
+      <div className="max-w-6xl mx-auto">
       <Reveal hiddenClass="opacity-0 translate-y-12 scale-95">
         <div className="flex flex-wrap justify-center gap-2 mb-8">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => handleSelectedCategory(cat)}
-              className={`px-4 py-1.5 rounded-lg text-sm border transition-all duration-200 hover:cursor-pointer ${
-                activeCategory === cat
-                  ? "bg-gray-900 text-white border-gray-900"
-                  : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+            {categories.map((cat) => {
+              const acc = categoryAccent[cat];
+              const isActive = activeCategory === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => handleSelectedCategory(cat)}
+                  style={
+                    isActive
+                      ? {
+                          background: acc.bg,
+                          borderColor: acc.border,
+                          color: acc.border,
+                        }
+                      : {}
+                  }
+                  className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm border transition-all duration-200 hover:cursor-pointer ${activeCategory === cat
+                      ? "bg-gray-900 text-white border-gray-900"
+                      : "bg-white text-gray-600 border-gray-200 hover:border-gray-400"
+                    }`}
+                >
+                  {isActive && (
+                    <span
+                      className="inline-block w-1.5 h-1.5 rounded-full shrink-0"
+                      style={{ background: acc.dot }}
+                    ></span>
+                  )}
+                  {cat}
+                </button>
+              )
+            })}
         </div>
         <div className="max-w-6xl mx-auto px-4 sm:px-16">
           <div className="flex flex-wrap gap-3 justify-center will-change-transform">
@@ -50,14 +98,17 @@ export default function MySkills() {
         </div>
       </Reveal>
 
-      <div className="flex items-center justify-center mt-10">
-        <button
-          onClick={() => setExpanded((prev) => !prev)}
-          className="border border-gray-400 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-black hover:text-white transition cursor-pointer"
-        >
-          {expanded ? "Show Less" : "Expand All"}
-        </button>
-      </div>
+        {count > DEFAULT_COUNT &&
+          <div className="flex items-center justify-center mt-10">
+            <button
+              onClick={() => setExpanded((prev) => !prev)}
+              className="border border-gray-400 px-4 py-2 rounded-md text-sm text-gray-700 hover:bg-black hover:text-white transition cursor-pointer"
+            >
+              {expanded ? "Show Less" : "Expand All"}
+            </button>
+          </div>
+        }
+        </div>
     </section>
   );
 }
