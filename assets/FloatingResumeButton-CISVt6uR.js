@@ -1,4 +1,4 @@
-import{r as t,j as e,L as n}from"./index-DZCmYh0h.js";import{F as l}from"./FileText.esm-CNqwuZAc.js";function p(){const[o,r]=t.useState(!1),[s,a]=t.useState(!1);return t.useEffect(()=>{const i=setTimeout(()=>r(!0),1500);return()=>clearTimeout(i)},[]),e.jsxs(n,{to:"/resume",onMouseEnter:()=>a(!0),onMouseLeave:()=>a(!1),style:{fontFamily:"'DM Mono', monospace"},className:`
+import{r as t,j as e,L as n}from"./index-BuKOYKqi.js";import{F as l}from"./FileText.esm-CGiKZBUX.js";function p(){const[o,r]=t.useState(!1),[s,a]=t.useState(!1);return t.useEffect(()=>{const i=setTimeout(()=>r(!0),1500);return()=>clearTimeout(i)},[]),e.jsxs(n,{to:"/resume",onMouseEnter:()=>a(!0),onMouseLeave:()=>a(!1),style:{fontFamily:"'DM Mono', monospace"},className:`
         fixed right-5 bottom-6 z-50
         flex items-center gap-2
         border border-gray-900 bg-white text-gray-900
