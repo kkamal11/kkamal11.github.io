@@ -7,6 +7,13 @@ import {
   deleteObject,
 } from "firebase/storage";
 import { storage } from "../../vault/firebase";
+import {
+  UploadSimple,
+  Trash,
+  ArrowSquareOut,
+  File,
+  CircleNotch,
+} from "phosphor-react";
 
 type VaultFile = {
   name: string;
@@ -14,102 +21,179 @@ type VaultFile = {
   ref: any;
 };
 
+function fileExt(name: string) {
+  return name.split(".").pop()?.toUpperCase() ?? "FILE";
+}
+
 export default function FilesSection() {
-  const [files, setFiles] = useState<VaultFile[]>([]);
+  const [files, setFiles]       = useState<VaultFile[]>([]);
   const [uploading, setUploading] = useState(false);
+  const [deleting, setDeleting]  = useState<string | null>(null);
+  const [error, setError]        = useState<string | null>(null);
 
   const folderRef = ref(storage, "vault-files");
 
   const fetchFiles = async () => {
-    const result = await listAll(folderRef);
-
+    const result   = await listAll(folderRef);
     const fileList = await Promise.all(
       result.items.map(async (item) => ({
         name: item.name,
-        url: await getDownloadURL(item),
-        ref: item,
+        url:  await getDownloadURL(item),
+        ref:  item,
       }))
     );
-
     setFiles(fileList);
   };
 
-  useEffect(() => {
-    fetchFiles();
-  }, []);
+  useEffect(() => { fetchFiles(); }, []);
 
-  const handleUpload = async (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-
     setUploading(true);
-
+    setError(null);
     try {
       const fileRef = ref(storage, `vault-files/${file.name}`);
       await uploadBytes(fileRef, file);
       await fetchFiles();
-    } catch (err) {
-      console.error("Upload failed:", err);
+    } catch (err: any) {
+      setError("Upload failed. Please try again.");
     }
-
     setUploading(false);
+    e.target.value = "";
   };
 
-  const handleDelete = async (fileRef: any) => {
+  const handleDelete = async (file: VaultFile) => {
+    setDeleting(file.name);
     try {
-      await deleteObject(fileRef);
-      fetchFiles();
-    } catch (err) {
-      console.error("Delete failed:", err);
+      await deleteObject(file.ref);
+      await fetchFiles();
+    } catch (err: any) {
+      setError("Delete failed. Please try again.");
     }
+    setDeleting(null);
   };
 
   return (
-    <div className="bg-white border border rounded-lg p-5 shadow-sm">
-      <h2 className="text-lg font-semibold text-gray-900 mb-3">
-        Files
-      </h2>
+    <div
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="bg-white border border-[#e8e6df] rounded-md overflow-hidden"
+    >
+      {/* ── Header ── */}
+      <div className="flex items-center justify-between px-5 py-3 bg-[#f5f3ee] border-b border-[#e8e6df]">
+        <div className="flex items-center gap-2">
+          <File size={13} className="text-gray-400" />
+          <span
+            style={{ fontFamily: "'DM Mono', monospace" }}
+            className="text-[10px] tracking-widest uppercase text-gray-500"
+          >
+            Vault Files
+          </span>
+          {files.length > 0 && (
+            <span
+              style={{ fontFamily: "'DM Mono', monospace" }}
+              className="text-[9px] tracking-widest uppercase bg-white border border-[#e8e6df]
+                rounded-[2px] px-1.5 py-0.5 text-gray-400"
+            >
+              {files.length}
+            </span>
+          )}
+        </div>
 
-      <label className="inline-block mb-4">
-        <input
-          type="file"
-          onChange={handleUpload}
-          className="hidden"
-        />
+        {/* Upload button */}
+        <label className="cursor-pointer">
+          <input type="file" onChange={handleUpload} className="hidden" />
+          <span
+            style={{ fontFamily: "'DM Mono', monospace" }}
+            className="flex items-center gap-1.5 text-[9px] tracking-widest uppercase
+              border border-gray-900 text-gray-900 px-2.5 py-1.5 rounded-[3px]
+              hover:bg-gray-900 hover:text-white transition-colors duration-150"
+          >
+            {uploading
+              ? <CircleNotch size={11} className="animate-spin" />
+              : <UploadSimple size={11} />
+            }
+            {uploading ? "Uploading…" : "Upload"}
+          </span>
+        </label>
+      </div>
 
-        <span className="px-4 py-2 bg-gray-900 text-white rounded-lg text-sm cursor-pointer hover:bg-gray-700 transition">
-          {uploading ? "Uploading..." : "Upload File"}
-        </span>
-      </label>
+      {/* ── Error ── */}
+      {error && (
+        <div className="px-5 py-2 border-b border-[#e8e6df] bg-red-50">
+          <p
+            style={{ fontFamily: "'DM Mono', monospace" }}
+            className="text-[10px] tracking-wide text-red-500"
+          >
+            {error}
+          </p>
+        </div>
+      )}
 
+      {/* ── File list ── */}
       {files.length === 0 ? (
-        <p className="text-sm text-gray-500">
-          No files uploaded yet.
-        </p>
+        <div className="flex flex-col items-center justify-center py-10 gap-2">
+          <File size={24} className="text-[#e8e6df]" />
+          <p
+            style={{ fontFamily: "'DM Mono', monospace" }}
+            className="text-[10px] tracking-widest uppercase text-gray-400"
+          >
+            No files uploaded yet
+          </p>
+        </div>
       ) : (
-        <div className="space-y-2 max-h-[320px] overflow-y-auto pr-1">
+        <div className="divide-y divide-[#e8e6df] max-h-[320px] overflow-y-auto">
           {files.map((file) => (
             <div
               key={file.name}
-              className="flex items-center justify-between bg-gray-50 px-3 py-2 rounded-lg"
+              className="group flex items-center justify-between px-5 py-2.5
+                hover:bg-[#f5f3ee] transition-colors duration-150"
             >
-              <a
-                href={file.url}
-                target="_blank"
-                rel="noreferrer"
-                className="text-sm text-blue-600 hover:underline truncate"
-              >
-                {file.name}
-              </a>
+              {/* Left — ext badge + name */}
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span
+                  style={{ fontFamily: "'DM Mono', monospace" }}
+                  className="shrink-0 text-[8px] tracking-widest uppercase
+                    bg-[#f5f3ee] border border-[#e8e6df] rounded-[2px]
+                    px-1.5 py-0.5 text-gray-400"
+                >
+                  {fileExt(file.name)}
+                </span>
+                <span className="text-[12px] text-gray-700 truncate">
+                  {file.name}
+                </span>
+              </div>
 
-              <button
-                onClick={() => handleDelete(file.ref)}
-                className="text-xs text-red-500 hover:text-red-700 ml-3"
-              >
-                Delete
-              </button>
+              {/* Right — open + delete */}
+              <div className="flex items-center gap-1 shrink-0 ml-3
+                opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+                <a
+                  href={file.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  title="Open"
+                  className="flex items-center justify-center w-6 h-6 rounded-[3px]
+                    border border-[#e8e6df] text-gray-400
+                    hover:border-gray-900 hover:text-gray-900
+                    transition-all duration-150"
+                >
+                  <ArrowSquareOut size={11} />
+                </a>
+                <button
+                  onClick={() => handleDelete(file)}
+                  title="Delete"
+                  disabled={deleting === file.name}
+                  className="flex items-center justify-center w-6 h-6 rounded-[3px]
+                    border border-[#e8e6df] text-gray-400
+                    hover:border-red-400 hover:text-red-500
+                    transition-all duration-150 cursor-pointer disabled:opacity-40"
+                >
+                  {deleting === file.name
+                    ? <CircleNotch size={11} className="animate-spin" />
+                    : <Trash size={11} />
+                  }
+                </button>
+              </div>
             </div>
           ))}
         </div>
