@@ -64,19 +64,44 @@ export function GithubGrayButton({url}:GithubGrayButtonProps) {
     )
 }
 
+
 export function GithubGrayButtonRound({ url }: GithubGrayButtonProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="
-        inline-flex items-center text-white
-        bg-black transition duration-300 cursor-pointer hover:scale-105 px-3 py-5 rounded-full"
       title="Open on GitHub in new tab"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative inline-flex items-center justify-center
+        w-10 h-10 rounded-full
+        border border-gray-900 text-gray-900
+        hover:bg-gray-900 hover:text-white
+        transition-colors duration-150"
     >
-      <GithubLogo size={23} weight="fill" />
-      <ArrowSquareOut size={23} />
+      <GithubLogo
+        size={18}
+        weight="fill"
+        style={{
+          opacity: hovered ? 0 : 1,
+          transform: hovered ? "scale(0.7)" : "scale(1)",
+          transition: "opacity 0.15s, transform 0.15s",
+          position: "absolute",
+        }}
+      />
+      <ArrowSquareOut
+        size={16}
+        weight="bold"
+        style={{
+          opacity: hovered ? 1 : 0,
+          transform: hovered ? "scale(1)" : "scale(0.7)",
+          transition: "opacity 0.15s, transform 0.15s",
+          position: "absolute",
+        }}
+      />
     </a>
   );
 }
