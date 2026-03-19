@@ -1,22 +1,23 @@
-type TagPropType =  {
-    slotValue: string,
-    doTransition?: boolean
-}
-
-export const Tag = ({ slotValue, doTransition = false }: TagPropType) => {
-  
-   return (
-    <div>
-      <span
-        className={
-          doTransition
-            ? "inline-block px-2 py-1 text-xs rounded bg-gray-50 border border-gray-200 text-gray-700 transform hover:scale-105 transition hover:cursor-pointer flex-shrink-0"
-            : "inline-block px-2 py-1 text-xs rounded bg-gray-50 border border-gray-200 text-gray-700 hover:cursor-pointerflex-shrink-0"
-        }
-      >
-        {slotValue}
-      </span>
-    </div>
-  );
+type TagPropType = {
+  slotValue: string;
+  doTransition?: boolean;
 };
 
+export const Tag = ({ slotValue, doTransition = false }: TagPropType) => {
+  return (
+    <span
+      className={`
+        inline-flex items-center flex-shrink-0
+        px-2 py-1 rounded-[2px]
+        text-[8px] tracking-widest uppercase
+        bg-white border border-[#e8e6df] text-gray-500
+        ${doTransition
+          ? "cursor-pointer transition-all duration-150 hover:bg-[#1a1916] hover:border-[#1a1916] hover:text-white"
+          : ""
+        }
+      `}
+    >
+      {slotValue}
+    </span>
+  );
+};
