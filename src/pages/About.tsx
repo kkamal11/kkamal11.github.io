@@ -1,5 +1,7 @@
 import { Laptop, GraduationCap, Briefcase, Medal } from "phosphor-react";
 import focusImg from '../assets/focus.webp'
+import nit_kkr from '../assets/images/nit_kkr.webp'
+import iitm from '../assets/images/iitm.webp'
 import { certificates } from "../utils/Data";
 import { useState } from "react";
 import Reveal from "../components/Reveal";
@@ -86,6 +88,7 @@ export default function About() {
                   degree="Bachelor of Technology (B.Tech)"
                   period="Aug 2019 – June 2023"
                   grade="8.46 CGPA"
+                  logo={nit_kkr}
                 />
                 <EduBlock
                   institute="Indian Institute of Technology Madras"
@@ -93,6 +96,7 @@ export default function About() {
                   degree="BSc in Programming and Data Science"
                   period="Mar 2021 – Dec 2025"
                   grade="9.40 CGPA"
+                  logo={iitm}
                 />
                 <EduBlock
                   institute="MS Memorial Public School"
@@ -192,21 +196,33 @@ export default function About() {
   );
 }
 
-function EduBlock({
-  institute,
-  location,
-  degree,
-  period,
-  grade,
-}: {
+type EduBlockProps = {
   institute: string;
   location: string;
   degree: string;
   period: string;
   grade: string;
-}) {
+  logo?: string; 
+};
+
+export function EduBlock({
+  institute,
+  location,
+  degree,
+  period,
+  grade,
+  logo,
+}: EduBlockProps) {
+  const [hovered, setHovered] = useState(false);
+
   return (
-    <div className="bg-white px-5 py-4 space-y-0.5 hover:bg-[#f5f3ee] transition-colors duration-150">
+    <div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative bg-white px-5 py-4 space-y-0.5
+        hover:bg-[#f5f3ee] transition-colors duration-150 overflow-hidden"
+    >
+      {/* ── Text content ── */}
       <p className="text-[14px] font-medium text-gray-900">{institute}</p>
       <p
         style={{ fontFamily: "'DM Mono', monospace" }}
@@ -231,9 +247,36 @@ function EduBlock({
           {grade}
         </span>
       </div>
+
+      {/* ── Logo — always in DOM, clipped below card until hovered ── */}
+      {logo && (
+        <div
+          className={`${hovered ? 'mt-4':''} flex items-center justify-center pointer-events-none rounded-md`}
+          style={{
+            maxHeight: hovered ? "260px" : "0px",
+            overflow: "hidden",
+            transition: "max-height 0.45s cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
+          <img
+            src={logo}
+            alt={`${institute} logo`}
+            className="w-auto object-contain rounded-md opacity-80 mt-3"
+            style={{
+              transform: hovered ? "translateY(0)" : "translateY(20px)",
+              opacity: hovered ? 0.8 : 0,
+              transition:
+                "transform 0.45s cubic-bezier(0.16,1,0.3,1), opacity 0.35s ease",
+            }}
+          />
+        </div>
+      )}
     </div>
   );
 }
+
+
+
 
 function Timeline({ children }: { children: React.ReactNode }) {
   return (
