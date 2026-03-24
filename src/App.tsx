@@ -3,6 +3,7 @@ import { Routes, Route, useLocation } from "react-router-dom"
 import Navbar from "./components/layout/Navbar"
 import RedirectHandler from "./utils/RedirectHandler"
 import PageLoader from "./components/layout/PageLoader"
+import SiteInfo from "./pages/SiteInfo"
 
 
 const Home = lazy(() => import("./pages/Home"));
@@ -48,6 +49,7 @@ function App() {
                   </Suspense>
                 }
             />
+            <Route path="/site" element={<SiteInfo />} />
             <Route path="/resume" element={<ResumeViewer />} />
             <Route path="/projects/:id" element={<ProjectMarkdown />} />
             <Route path="*" element={<NotFoundPage />} />
