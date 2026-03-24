@@ -152,17 +152,23 @@ export default function Footer() {
             >
               © {new Date().getFullYear()} Kamal Kishor Chaurasiya. All rights reserved.
             </p>
-            <p
+            
+            <div
               style={{ fontFamily: "'DM Mono', monospace" }}
               className="text-[10px] tracking-wide text-white/25"
             >
+              <NavLink to="/site"
+                className="text-[9px] tracking-widest uppercase text-white/25 hover:text-white/60 transition-colors duration-200 hover:scale-105">
+                Site Info
+              </NavLink>
+              {" · "}
               Built with{" "}
               <span className="text-blue-400/70">React</span>
               {" · "}
               <span className="text-cyan-400/70">TypeScript</span>
               {" · "}
               <span className="text-sky-400/70">Tailwind CSS</span>
-            </p>
+            </div>
           </div>
         </Reveal>
 
