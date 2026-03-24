@@ -1,4 +1,4 @@
-import{j as t}from"./index-CHx3B6Xo.js";const i=({slotValue:e,doTransition:r=!1})=>t.jsx("span",{className:`
+import{j as t}from"./index-C7WBu3W6.js";const i=({slotValue:e,doTransition:r=!1})=>t.jsx("span",{className:`
         inline-flex items-center flex-shrink-0
         px-2 py-1 rounded-[2px]
         text-[8px] tracking-widest uppercase
