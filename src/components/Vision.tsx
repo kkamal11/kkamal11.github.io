@@ -36,7 +36,7 @@ const VisionComp: React.FC = () => {
 
           {/* CTA */}
           <div className="pt-2">
-              <NavLink to={'/contact'} className="border border-gray-400 px-7 py-3 rounded-md text-sm text-gray-800 hover:bg-black hover:text-white transition">
+              <NavLink to={'/contact'} className="border border-gray-500 px-7 py-3.5 rounded-md text-[11px] text-gray-700 uppercase tracking-wide hover:bg-black hover:text-white transition-colors duration-200">
                 Book a Call
             </NavLink>
           </div>

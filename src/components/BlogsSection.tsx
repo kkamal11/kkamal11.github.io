@@ -40,7 +40,7 @@ export default function BlogsSection() {
         <div className="flex items-center justify-center mt-10">
           <NavLink
             to="/blog"
-          className="border border-gray-400 text-gray-800 px-4 py-2 rounded text-sm hover:bg-black hover:text-white transition cursor-pointer"
+          className="border border-gray-500 text-gray-700 px-6 py-2.5 rounded-md text-[11px] uppercase tracking-wide hover:bg-black hover:text-white transition-colors duration-200 cursor-pointer"
           >
             View All Articles →
           </NavLink>
