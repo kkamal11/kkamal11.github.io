@@ -32,14 +32,14 @@ export function SocialButton({ link, name, bgColor = "gray" }: SocialButtonsProp
       onMouseLeave={() => setHovered(false)}
       style={{
         fontFamily:  "'DM Mono', monospace",
-        borderColor: hovered ? color.border : "#e8e6df",
-        color:       hovered ? color.text   : "#b1b1aeff",
+        borderColor: hovered ? color.border : "",
+        color:       hovered ? color.text: "",
         background:  hovered ? color.bg     : "transparent",
         transition:  "border-color 0.15s, color 0.15s, background 0.15s",
       }}
       className="flex-shrink-0 flex items-center gap-1.5
-        border rounded-[3px] px-5 py-2
-        text-[10px] tracking-wide uppercase cursor-pointer"
+        border border-white/40 rounded-[3px] px-5 py-2 text-white/40
+        text-[10px] tracking-wide uppercase transition-colors duration-200 cursor-pointer"
     >
       {name}
       <span
