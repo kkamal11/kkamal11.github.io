@@ -6,6 +6,7 @@ import { certificates } from "../utils/Data";
 import { useState } from "react";
 import Reveal from "../components/Reveal";
 import SectionLabel from "../components/SectionLabel";
+import GithubStats from "../components/GithubStats";
 export default function About() {
   const [showAllCerts, setShowAllCerts] = useState(false);
   const toggleCertCount = () => {
@@ -109,6 +110,8 @@ export default function About() {
             </div>
           </Reveal>
         </div>
+
+        <GithubStats />
 
         {/* ===== Row 2 ===== */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
