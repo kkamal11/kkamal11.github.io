@@ -4,6 +4,7 @@ import Navbar from "./components/layout/Navbar"
 import RedirectHandler from "./utils/RedirectHandler"
 import PageLoader from "./components/layout/PageLoader"
 import SiteInfo from "./pages/SiteInfo"
+import InterviewPost from "./components/blog/interviewExperience"
 
 
 const Home = lazy(() => import("./pages/Home"));
@@ -13,6 +14,7 @@ const VisionComp = lazy(() => import("./components/Vision"));
 const Footer = lazy(() => import("./components/layout/Footer"));
 const Projects = lazy(() => import("./pages/Projects"));
 const Blogs = lazy(() => import("./pages/Blogs"));
+const Blogss = lazy(() => import("./pages/Blogss"));
 const ScrollToTop = lazy(() => import("./utils/ScrollToTop"));
 const VaultShell = lazy(() => import("./vault/VaultShell"));
 const FloatingResumeButton = lazy(() => import("./components/resume/FloatingResumeButton"));
@@ -41,7 +43,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/blog" element={<Blogs />} />
+            <Route path="/blog" element={<Blogss />} />
+            <Route path="/interview/:id" element={<InterviewPost />} />
             <Route path="/vault/*"
                 element={
                   <Suspense fallback={<PageLoader />}>
