@@ -260,6 +260,7 @@ export default function Footer() {
                 <SocialButton link="https://github.com/kkamal11"                       name="Github"     bgColor="gray"   />
                 <SocialButton link="https://www.hackerrank.com/profile/kishorkamal7091" name="Hackerrank" bgColor="green"  />
                 <SocialButton link="https://app.onlinedegree.iitm.ac.in/student/21F2000804" name="IIT Madras" bgColor="maroon" />
+                <SocialButton link="https://leetcode.com/u/kishorkamal7091/" name="LeetCode" bgColor="yellow" />
               </div>
             </div>
           </Reveal>
